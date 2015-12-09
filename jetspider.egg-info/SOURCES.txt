@@ -1,0 +1,5 @@
+setup.py
+jetspider.egg-info/PKG-INFO
+jetspider.egg-info/SOURCES.txt
+jetspider.egg-info/dependency_links.txt
+jetspider.egg-info/top_level.txt
