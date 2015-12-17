@@ -6,6 +6,7 @@ from metrics.metric import Metric
 from mq.queue import FIFOQueue
 from mq.filter import DuplicateFilter
 from processor.processor import DocumentProcessor
+from slave.health import Health
 from spiders.crawlers import SimpleCrawler
 from storage.mongodb import MongodbStorage
 from utils.encrypt import Encrypt
@@ -13,16 +14,18 @@ from pymongo import MongoClient
 import redis
 import logging
 import time
+
 # logger = logging.getLogger('root.SpiderWorker')
 IN_TASK = False
 task = {}
 
+
 def log(message):
     print message
 
+
 class Worker(object):
     def __init__(self, master='127.0.0.1:2181', type='spider'):
-
         self.type = type
         self.task = None
 
@@ -34,6 +37,8 @@ class Worker(object):
         # 生成slave-id并向master注册
         self.id = Metric.get_host()
         self._register()
+        # 创建心跳线程
+        self.health_check = Health(self.zk, self.id)
 
         # 获取分布式配置
         self.config = eval(self.zk.get("/jetsearch/config")[0])
@@ -46,7 +51,9 @@ class Worker(object):
         mongo_host, mongo_port = self.config.get("mongodb").split(":")
         self.mongodb = MongoClient(host=mongo_host, port=int(mongo_port))
 
-        log("[SUCESS] slave init with id %s and type %s" % (self.id, self.type))
+        # 开始心跳
+        self.health_check.start()
+        log("[SUCCESS] slave init with id %s and type %s" % (self.id, self.type))
 
         # 监听任务发布
         @self.zk.DataWatch("/jetsearch/task")
@@ -93,11 +100,14 @@ class Worker(object):
 
     def disconect(self):
         """
-        删除slave节点信息
+        停止心跳,删除slave节点信息
         """
+        log("[%s] disconnect from master...." % self.type)
+        self.health_check.stop()
+        self.health_check.join()
         self.zk.delete("/jetsearch/slaves/" + self.id)
         self.zk.stop()
-
+        log("[%s] bye ~ :)" % self.type)
 
 class SpiderWorker(Worker):
     def run(self, task):
@@ -117,10 +127,7 @@ class SpiderWorker(Worker):
         if len(spider_queue) > 0:
             url = spider_queue.pop()
 
-            fetch_start = time.time()
             crawler.fetch(url)
-            fetch_end = time.time()
-            print "fetch %s s" % str(fetch_end - fetch_start)
             # 若爬虫成功爬取
             if crawler.success:
                 try:
@@ -129,21 +136,11 @@ class SpiderWorker(Worker):
 
                     # 抓去的新链接判重后加入队列
                     for new_url in new_urls:
-                        set_start = time.time()
                         if not duplicate_filter.exists(new_url):
-                            set_end = time.time()
-                            print "set %s s" % (set_end - set_start)
-
-                            queue_start = time.time()
                             spider_queue.push(new_url)
-                            queue_end = time.time()
-                            print "queue %s s" % (queue_end - queue_start)
 
                     # url原始解析结果持久化
-                    store_start = time.time()
                     item = storage_pipline.insert(self.config.get("page_table"), item)
-                    store_end = time.time()
-                    print "store %s s" % str(store_end - store_start)
 
                     processer_queue.push(item.get('_id'))
 
@@ -188,4 +185,3 @@ class ProcessorWorker(Worker):
         else:
             log("[PROCESSOR] Wait for some tasks...")
             time.sleep(3)
-
