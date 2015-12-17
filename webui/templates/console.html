@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+    {% block content %}
+    <div class="container">
+        <h3>Console</h3>
+        <div class="row">
+            <div class="com-md-12">
+                <div class="console" id="console">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% end %}
+
+    {% block extend_js %}
+    <script>
+    var ws = new WebSocket('ws://localhost:8000/soc');
+    ws.onmessage = function(event) {
+        msg_to_display = document.createElement('p')
+        msg_to_display.innerHTML = event.data
+        console = document.getElementById('console')
+        console.appendChild(msg_to_display)
+        console.scrollTop = console.scrollHeight
+    };
+    </script>
+    {% end %}

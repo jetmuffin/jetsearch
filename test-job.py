@@ -6,11 +6,14 @@ task = {
     "allowed_domain": "hhu.edu.cn"
 }
 redis = redis.Redis()
-redis.lpush("task:spider", "http://www.hhu.edu.cn")
+redis.lpush("task:spider", {
+    "url": "http://www.hhu.edu.cn",
+    "life": 5
+})
 
 
 zk = KazooClient(hosts="127.0.0.1")
 zk.start()
-zk.create("/jetsearch/task", str(task))
+zk.create("/jetsearch/job", str(task))
 zk.stop()
 

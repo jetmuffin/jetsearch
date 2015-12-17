@@ -1,0 +1,19 @@
+.btn-group {
+    margin: 5px;
+}
+
+.console{
+    height: 450px;
+    overflow-y: scroll;
+    background-color: #000000;
+    padding: 10px;
+}
+
+.console p {
+    color: #00C700;
+    margin: 0;
+}
+
+.content-container{
+    padding: 20px 0;
+}

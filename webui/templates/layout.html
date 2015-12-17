@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page_title }}</title>
+    <link rel="stylesheet" href="{{static_url('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{static_url('css/style.css')}}">
+    {% block extend_css %}{% end %}
+</head>
+<body>
+    <header class="nav navbar-static-top navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="/" class="navbar-brand">JetSpider</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li {% if page_title == 'Index' %} class="active" {% end %}><a href="/">Index</a></li>
+                    <li {% if page_title == 'Slaves' %} class="active" {% end %} ><a href="/slaves">Slaves</a></li>
+                    <li {% if page_title == 'Console' %} class="active" {% end %} ><a href="/console">Console</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    {% block content %}{% end %}
+
+    <script src="{{ static_url('js/jquery.min.js') }}"></script>
+    <script src="{{ static_url('js/bootstrap.min.js') }}"></script>
+    {% block extend_js %}{% end %}
+  </body>
+</html>

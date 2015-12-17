@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+    {% block content %}
+    <div class="container">
+        <h3>Slaves</h3>
+        <table class="table table-hover table-striped">
+            <tr>
+                <th>#</th>
+                <th>Slave Name</th>
+                <th>Slave type</th>
+            </tr>
+            {% set slave_count = 0 %}
+            {% for slave in slaves %}
+            {% set slave_count = slave_count + 1 %}
+            <tr>
+                <td>{{ slave_count }}</td>
+                <td>{{ slave['id'] }}</td>
+                <td>{{ slave['type'] }}</td>
+            </tr>
+            {% end %}
+        </table>
+    </div>
+    {% end %}
+

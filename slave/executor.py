@@ -17,7 +17,7 @@ import time
 
 # logger = logging.getLogger('root.SpiderWorker')
 IN_TASK = False
-task = {}
+job = {}
 
 
 def log(message):
@@ -27,7 +27,12 @@ def log(message):
 class Worker(object):
     def __init__(self, master='127.0.0.1:2181', type='spider'):
         self.type = type
-        self.task = None
+        self.job = None
+        self.job_status = {
+            "total": 0,
+            "success": 0,
+            "fail": 0
+        }
 
         # 连接master的zookeeper-server
         # 默认zk为standalone模式下的127.0.0.1:2181
@@ -56,21 +61,21 @@ class Worker(object):
         log("[SUCCESS] slave init with id %s and type %s" % (self.id, self.type))
 
         # 监听任务发布
-        @self.zk.DataWatch("/jetsearch/task")
-        def task_watch(data, stat):
+        @self.zk.DataWatch("/jetsearch/job")
+        def job_watch(data, stat):
             if data:
-                self.task = eval(data)
-                log("[TASK] receve task: %s" % data)
+                self.job = eval(data)
+                log("[JOB] receve job: %s" % data)
 
-    def run(self, task):
+    def run(self, job):
         raise NotImplementedError
 
     def listen(self):
         while True:
-            if self.task:
-                self.run(self.task)
+            if self.job:
+                self.run(self.job)
             else:
-                log("[%s] Wait for task assignment..." % self.type.upper())
+                log("[%s] Wait for job assignment..." % self.type.upper())
                 time.sleep(3)
 
     def _register(self):
@@ -98,6 +103,14 @@ class Worker(object):
         ip = Metric.get_ip()
         return host + "-" + Encrypt.md5(host + ip + str(time.time()))[0:8]
 
+    def _update_status(self, success=True):
+        self.job_status['total'] += 1
+        if success:
+            self.job_status['success'] += 1
+        else:
+            self.job_status['fail'] += 1
+        self.health_check.update(self.job_status)
+
     def disconect(self):
         """
         停止心跳,删除slave节点信息
@@ -107,81 +120,102 @@ class Worker(object):
         self.health_check.join()
         self.zk.delete("/jetsearch/slaves/" + self.id)
         self.zk.stop()
-        log("[%s] bye ~ :)" % self.type)
+        log("[%s] bye ~ :)" % self.type.upper())
+
 
 class SpiderWorker(Worker):
-    def run(self, task):
+    def __init__(self,  master='127.0.0.1:2181', type='spider'):
+        Worker.__init__(self, master, type)
+
         # 注册任务队列
-        spider_queue = FIFOQueue(self.redis, self.config.get("spider_queue"))
-        processer_queue = FIFOQueue(self.redis, self.config.get("processor_queue"))
-
+        self.spider_queue = FIFOQueue(self.redis, self.config.get("spider_queue"))
+        self.processer_queue = FIFOQueue(self.redis, self.config.get("processor_queue"))
         # 注册过滤器
-        duplicate_filter = DuplicateFilter(self.redis, self.config.get("duplicate_set"))
-
+        self.duplicate_filter = DuplicateFilter(self.redis, self.config.get("duplicate_set"))
         # 注册存储数据库
-        storage_pipline = MongodbStorage(self.mongodb, self.config.get("storage_db"))
+        self.storage_pipline = MongodbStorage(self.mongodb, self.config.get("storage_db"))
 
+    def run(self, job):
         # 注册爬虫
-        crawler = SimpleCrawler(task['start_url'], task['allowed_domain'])
+        crawler = SimpleCrawler(job['start_url'], job['allowed_domain'])
 
-        if len(spider_queue) > 0:
-            url = spider_queue.pop()
+        if len(self.spider_queue) > 0:
+            task = eval(self.spider_queue.pop())
 
-            crawler.fetch(url)
+            # 若该任务失败次数过多,不再处理该任务
+            if task['life'] == 0:
+                return
+
+            crawler.fetch(task['url'])
             # 若爬虫成功爬取
             if crawler.success:
+                # 更新任务状态
+                self._update_status(True)
                 try:
                     item = crawler.parse()
                     new_urls = item.get('links')
 
                     # 抓去的新链接判重后加入队列
                     for new_url in new_urls:
-                        if not duplicate_filter.exists(new_url):
-                            spider_queue.push(new_url)
+                        if not self.duplicate_filter.exists(new_url):
+                            self.spider_queue.push({
+                                "url": new_url,
+                                "life": 5
+                            })
 
                     # url原始解析结果持久化
-                    item = storage_pipline.insert(self.config.get("page_table"), item)
+                    item = self.storage_pipline.insert(self.config.get("page_table"), item)
+                    self.processer_queue.push(item.get('_id'))
 
-                    processer_queue.push(item.get('_id'))
-
-                    log("[SUCCESS] %s." % url)
+                    log("[SUCCESS] %s." % task['url'])
                 except Exception, e:
                     # 将失败的url再次放入队列
-                    spider_queue.push(url)
-                    log("[FAILED] %s %s" % (url, e))
+                    self.spider_queue.push({
+                        "url": task['url'],
+                        "life": task['life']-1
+                    })
+                    log("[FAILED] %s %s" % (task['url'], e))
             else:
+                # 更新任务状态
+                self._update_status(False)
+
                 # 将失败的url再次放入队列
-                spider_queue.push(url)
-                log("[FAILED] %s %s" % (url, crawler.error))
+                self.spider_queue.push({
+                        "url": task['url'],
+                        "life": task['life']-1
+                    })
+                log("[FAILED] %s %s" % (task['url'], crawler.error))
 
         else:
-            log("[SPIDER] Wait for some tasks...")
+            log("[SPIDER] Wait for some jobs...")
             time.sleep(3)
 
 
 class ProcessorWorker(Worker):
-    def run(self, task):
+    def __init__(self, master='127.0.0.1:2181', type='spider'):
+        Worker.__init__(self, master, type)
+
         # 注册任务队列
-        processer_queue = FIFOQueue(self.redis, self.config.get("processor_queue"))
-
+        self.processer_queue = FIFOQueue(self.redis, self.config.get("processor_queue"))
         # 注册存储数据库
-        storage_pipline = MongodbStorage(self.mongodb, self.config.get("storage_db"))
+        self.storage_pipline = MongodbStorage(self.mongodb, self.config.get("storage_db"))
 
+    def run(self, job):
         # 注册文章处理器
         processor = DocumentProcessor()
 
-        while len(processer_queue) > 0:
-            doc_id = processer_queue.pop()
-            page = storage_pipline.find(self.config.get("page_table"), doc_id)
+        while len(self.processer_queue) > 0:
+            page_id = self.processer_queue.pop()
+            page = self.storage_pipline.find(self.config.get("page_table"), page_id)
             terms = processor.process(page)
-            terms_count = len(terms)
 
             # 将page_table抽取的信息存入doc_table
-            document = {'terms': terms, 'page_id': doc_id, 'links': page['links'], 'href': page['href']}
-            storage_pipline.insert(self.config.get("doc_table"), document)
+            page['terms'] = terms
+            self.storage_pipline.update(self.config.get("page_table"), page_id, page)
 
-            log("[SUCCESS] %s" % document['href'])
+            self._update_status(True)
+            log("[SUCCESS] %s" % page['href'])
 
         else:
-            log("[PROCESSOR] Wait for some tasks...")
+            log("[PROCESSOR] Wait for some jobs...")
             time.sleep(3)

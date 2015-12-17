@@ -10,7 +10,7 @@ function pagerank_map(){
         })
     });
     emit(page._id, {
-        pr: 1.0,
+        pr: page.value.pr,
         links: page.value.links
     })
 }

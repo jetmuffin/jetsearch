@@ -12,13 +12,12 @@ class Health(threading.Thread):
         self.slave_id = slave_id
 
     def update(self, status):
-        self.staus = status
+        self.status = status
 
     def run(self):
         while not self.end:
             slave = eval(str(self.zk.get("/jetsearch/slaves/" + self.slave_id)[0]))
             slave['heartbeat'] = Metric.get_heartbeat()
-
             slave['task_status'] = self.status
             self.zk.set("/jetsearch/slaves/" + self.slave_id, str(slave))
             time.sleep(3)
