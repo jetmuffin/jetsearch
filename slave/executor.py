@@ -12,11 +12,13 @@ from utils.encrypt import Encrypt
 from pymongo import MongoClient
 import redis
 import logging
-
-logger = logging.getLogger('root.SpiderWorker')
+import time
+# logger = logging.getLogger('root.SpiderWorker')
 IN_TASK = False
 task = {}
 
+def log(message):
+    print message
 
 class Worker(object):
     def __init__(self, master='127.0.0.1:2181', type='spider'):
@@ -44,14 +46,14 @@ class Worker(object):
         mongo_host, mongo_port = self.config.get("mongodb").split(":")
         self.mongodb = MongoClient(host=mongo_host, port=int(mongo_port))
 
-        logger.info("[SUCESS] slave init with id %s and type %s", self.id, self.type)
+        log("[SUCESS] slave init with id %s and type %s" % (self.id, self.type))
 
         # 监听任务发布
         @self.zk.DataWatch("/jetsearch/task")
         def task_watch(data, stat):
             if data:
                 self.task = eval(data)
-                logger.info("[TASK] receve task: %s", data)
+                log("[TASK] receve task: %s" % data)
 
     def run(self, task):
         raise NotImplementedError
@@ -61,7 +63,7 @@ class Worker(object):
             if self.task:
                 self.run(self.task)
             else:
-                logger.info("[%s] Wait for task assignment..." % self.type.upper())
+                log("[%s] Wait for task assignment..." % self.type.upper())
                 time.sleep(3)
 
     def _register(self):
@@ -89,9 +91,9 @@ class Worker(object):
         ip = Metric.get_ip()
         return host + "-" + Encrypt.md5(host + ip + str(time.time()))[0:8]
 
-    def __del__(self):
+    def disconect(self):
         """
-        析构函数,删除slave节点信息
+        删除slave节点信息
         """
         self.zk.delete("/jetsearch/slaves/" + self.id)
         self.zk.stop()
@@ -114,28 +116,49 @@ class SpiderWorker(Worker):
 
         if len(spider_queue) > 0:
             url = spider_queue.pop()
-            crawler.fetch(url)
 
+            fetch_start = time.time()
+            crawler.fetch(url)
+            fetch_end = time.time()
+            print "fetch %s s" % str(fetch_end - fetch_start)
             # 若爬虫成功爬取
             if crawler.success:
-                item = crawler.parse()
-                new_urls = item.get('links')
+                try:
+                    item = crawler.parse()
+                    new_urls = item.get('links')
 
-                # 抓去的新链接判重后加入队列
-                for new_url in new_urls:
-                    if not duplicate_filter.exists(new_url):
-                        spider_queue.push(new_url)
+                    # 抓去的新链接判重后加入队列
+                    for new_url in new_urls:
+                        set_start = time.time()
+                        if not duplicate_filter.exists(new_url):
+                            set_end = time.time()
+                            print "set %s s" % (set_end - set_start)
 
-                # url原始解析结果持久化
-                item = storage_pipline.insert(item, self.config.get("page_table"))
-                processer_queue.push(item.get('_id'))
+                            queue_start = time.time()
+                            spider_queue.push(new_url)
+                            queue_end = time.time()
+                            print "queue %s s" % (queue_end - queue_start)
 
-                logger.info("[SUCCESS] %s." % url)
+                    # url原始解析结果持久化
+                    store_start = time.time()
+                    item = storage_pipline.insert(self.config.get("page_table"), item)
+                    store_end = time.time()
+                    print "store %s s" % str(store_end - store_start)
+
+                    processer_queue.push(item.get('_id'))
+
+                    log("[SUCCESS] %s." % url)
+                except Exception, e:
+                    # 将失败的url再次放入队列
+                    spider_queue.push(url)
+                    log("[FAILED] %s %s" % (url, e))
             else:
-                logger.error("[FAILED] %s %s" % (url, crawler.error))
+                # 将失败的url再次放入队列
+                spider_queue.push(url)
+                log("[FAILED] %s %s" % (url, crawler.error))
 
         else:
-            logger.info("[SPIDER] Wait for some tasks...")
+            log("[SPIDER] Wait for some tasks...")
             time.sleep(3)
 
 
@@ -152,17 +175,17 @@ class ProcessorWorker(Worker):
 
         while len(processer_queue) > 0:
             doc_id = processer_queue.pop()
-            document = storage_pipline.find(self.config.get("page_table"), doc_id)
-            terms = processor.process(document)
+            page = storage_pipline.find(self.config.get("page_table"), doc_id)
+            terms = processor.process(page)
             terms_count = len(terms)
 
-            # update item information to db
-            document['terms'] = terms
-            storage_pipline.update(self.config.get("page_table"), doc_id, document)
+            # 将page_table抽取的信息存入doc_table
+            document = {'terms': terms, 'page_id': doc_id, 'links': page['links'], 'href': page['href']}
+            storage_pipline.insert(self.config.get("doc_table"), document)
 
-            logger.info("[SUCCESS] %s" % document['href'])
+            log("[SUCCESS] %s" % document['href'])
 
         else:
-            logger.info("[PROCESSOR] Wait for some tasks...")
+            log("[PROCESSOR] Wait for some tasks...")
             time.sleep(3)
 

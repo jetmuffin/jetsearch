@@ -36,9 +36,13 @@ if __name__ == "__main__":
     """ 默认类型为spider """
     if options.type == "processor":
         slave = ProcessorWorker(options.master, "processor")
-        slave.listen()
     else:
         slave = SpiderWorker(options.master, "spider")
+
+    try:
         slave.listen()
+    except KeyboardInterrupt:
+        slave.disconect()
+
 
 

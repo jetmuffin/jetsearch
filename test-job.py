@@ -2,11 +2,11 @@ import redis
 from kazoo.client import KazooClient
 
 task = {
-    "start_url": "http://www.sunzequn.com",
-    "allowed_domain": "www.sunzequn.com"
+    "start_url": "http://www.hhu.edu.cn",
+    "allowed_domain": "hhu.edu.cn"
 }
 redis = redis.Redis()
-redis.lpush("task:spider", "http://www.sunzequn.com")
+redis.lpush("task:spider", "http://www.hhu.edu.cn")
 
 
 zk = KazooClient(hosts="127.0.0.1")

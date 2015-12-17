@@ -4,8 +4,8 @@ import urllib2
 import re
 
 from bs4 import BeautifulSoup
-
-
+import urlparse
+import time
 class SimpleCrawler:
     def __init__(self, start_url, allowed_domain):
         """
@@ -29,8 +29,8 @@ class SimpleCrawler:
         for key in self.header:
             request.add_header(key, self.header[key])
         try:
-            response = urllib2.urlopen(request)
-            self.content = response.read()
+            response = urllib2.urlopen(request, timeout=15)
+            self.content = response.read().encode("utf-8")
             self.success = True
         except Exception, e:
             self.error = e
@@ -51,7 +51,7 @@ class SimpleCrawler:
             "href": self.url,
             "links": self.extract_links(soup),
             "link_contents": self.extract_link_contents(soup),
-            "raw_content": self.content
+            # "raw_content": self.content
         }
         return item
 
@@ -60,7 +60,11 @@ class SimpleCrawler:
         抓取title内容
         :param soup: beautifulsoup对象
         """
-        return soup.title.string
+        if soup.title:
+            return soup.title.string
+        else:
+            return None
+        # return soup.title.string
 
     def extract_content(self, soup):
         """
@@ -103,21 +107,31 @@ class SimpleCrawler:
             url = soup_url.get("href")
 
             # 过滤包含邮箱的url
-            if url and not ("mailto" in url):
+            if url_filter(url):
                 if self.allowed_domain in url:
                     next_urls.append(url)
 
                 elif len(url) and url[0] == '/':
                     # 处理相对路径
-                    url = self.start_url + url
+                    url = urlparse.urljoin(self.url, url)
                     next_urls.append(url)
 
         return next_urls
 
+def url_filter(url):
+    if not url:
+        return False
+    # 过滤含指定子串的url
+    invalid_pattern = ["pdf", "mailto", "doc", "docx", "ppt", "pptx", "xls", "xlsx",
+                       "jpg", "gif", "png", "zip", "rar"]
+    for pattern in invalid_pattern:
+        if pattern in url:
+            return False
+    return True
 
 def url_encode(str):
     repr_str = repr(str).replace(r'\x', '%')
     return repr_str[1:-1]
 
-test = SimpleCrawler("http://jetmuffin.github.io", "jetmuffin.github.io")
-test.fetch("http://jetmuffinn.github.com")
+
+print url_filter("http://cies.hhu.edu.cn/picture/article/36/c0/db/aa3cddc84166b5bade0d766d3c16/6ea40dfa-35e3-4564-9c10-8e938c98a8ea.pdf")

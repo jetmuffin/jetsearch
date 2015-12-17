@@ -14,7 +14,9 @@ class Scheduler(object):
             "processor_queue": "task:processor",
             "duplicate_set": "set:duplicate",
             "storage_db": "jetsearch",
-            "page_table": "page_docs"
+            "page_table": "tbl_page",
+            "doc_table": "tbl_doc",
+            "term_table": "tbl_term"
         }
 
         # 初始注册slave为空

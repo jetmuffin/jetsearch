@@ -21,7 +21,7 @@ class JiebaSegmenter(Segmenter):
         :return: list(words): 分词结果
         """
         # 允许多线程分词 - 4线程
-        jieba.enable_parallel(4)
+        # jieba.enable_parallel(2)
         word_list = list(jieba.cut(content, False))
 
         return word_list

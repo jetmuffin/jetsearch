@@ -34,14 +34,19 @@ class DocumentProcessor(object):
         for word in word_list:
             position += 1
             # 过滤停词
-            if word.encode("utf-8") in self.stopwords or len(word) == 0:
+            if self.filter(word):
                 continue
 
             term_count += 1
-            in_title = True if word in document['title'] else False
+            if document['title'] and word in document['title']:
+                in_title = True
+            else:
+                in_title = False
+
             in_links = True if word in link_contents else False
-            if not word in terms:
+            if word not in terms:
                 terms[word] = {
+                    "word": word,
                     "freq": 1,
                     "tf": 0,
                     "pos": [position],
@@ -49,6 +54,7 @@ class DocumentProcessor(object):
                     "in_links": in_links
                 }
             else:
+                terms[word]['word'] = word
                 terms[word]['freq'] += 1
                 terms[word]['pos'].append(position)
                 terms[word]['in_title'] = in_title
@@ -59,5 +65,24 @@ class DocumentProcessor(object):
         for word in terms.keys():
             terms[word]['tf'] = float(terms[word]['freq']) / float(term_count)
 
-        return terms
+        # dict转为list
+        terms_list = [terms[word] for word in terms.keys()]
+        return terms_list
+
+    def filter(self, word):
+        if not len(word):
+            return True
+
+        if word.encode("utf-8") in self.stopwords:
+            return True
+
+        if word == ' ':
+            return True
+
+        if '.' in word:
+            return True
+
+        return False
+
+
 

@@ -11,8 +11,7 @@ class MongodbStorage(object):
     def __init__(self, server, db_name):
         self.db = server[db_name]
 
-
-    def insert(self, item, table):
+    def insert(self, table, item):
         """
             insert an item into table
             :param item:
@@ -54,4 +53,3 @@ class MongodbStorage(object):
             :param table:
         """
         self.db[table].remove()
-
