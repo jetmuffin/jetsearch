@@ -82,6 +82,9 @@ class DocumentProcessor(object):
         if '.' in word:
             return True
 
+        if word.isdigit():
+            return True
+
         return False
 
 

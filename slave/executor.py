@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+import random
 import time
 from kazoo.client import KazooClient
 from metrics.metric import Metric
@@ -153,6 +153,8 @@ class SpiderWorker(Worker):
                 self._update_status(True)
                 try:
                     item = crawler.parse()
+                    # 分片写入
+                    item['ram'] = random.random()
                     new_urls = item.get('links')
 
                     # 抓去的新链接判重后加入队列
