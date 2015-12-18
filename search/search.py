@@ -14,9 +14,9 @@ start = time.time()
 term = db.tbl_term.find_one({'_id': key})
 docs = []
 for term_doc in term['value']['docs']:
-    # doc = db.tbl_doc.find_one({'page_id': term_doc['doc_id']})
+#     # doc = db.tbl_doc.find_one({'page_id': term_doc['doc_id']})
     page = db.tbl_page.find_one({'_id': term_doc['page_id']})
-    print "%s : %s " % (page['title'], page['href'])
+#     print "%s : %s " % (page['title'], page['href'])
 end = time.time()
 print "耗时: %f s" % float(end - start)
 print "搜索到了: %d 个结果" % len(term['value']['docs'])

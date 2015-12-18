@@ -11,6 +11,7 @@ class SlaveHandler(tornado.web.RequestHandler):
             slave = zk.get("/jetsearch/slaves/" + slave_id)[0]
             slaves.append(eval(str(slave)))
         zk.stop()
+        print slaves
         self.render(
             'slaves.html',
             slaves=slaves,

@@ -5,8 +5,12 @@
         <table class="table table-hover table-striped">
             <tr>
                 <th>#</th>
-                <th>Slave Name</th>
-                <th>Slave type</th>
+                <th>name</th>
+                <th>host</th>
+                <th>type</th>
+                <th>cpu</th>
+                <th>mem</th>
+                <th>task(total/success/fail)</th>
             </tr>
             {% set slave_count = 0 %}
             {% for slave in slaves %}
@@ -14,7 +18,13 @@
             <tr>
                 <td>{{ slave_count }}</td>
                 <td>{{ slave['id'] }}</td>
+                <td>{{ slave['addr'] }}</td>
                 <td>{{ slave['type'] }}</td>
+                <td>{{ slave['heartbeat']['cpu'] }}</td>
+                <td>{{ slave['heartbeat']['mem_percent'] }}</td>
+                <td>{{ slave['task_status']['total'] }} /
+                {{ slave['task_status']['success'] }} /
+                {{ slave['task_status']['fail'] }} </td>
             </tr>
             {% end %}
         </table>

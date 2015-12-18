@@ -9,7 +9,7 @@ function doc2term_map() {
 			page_id: page_id,
 			tf: term.tf,
 			in_title: term.in_title,
-			in_links: term.in_links,
+			in_links: term.in_links
 		};
 		var value = {
 			docs: [doc]
