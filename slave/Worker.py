@@ -21,6 +21,7 @@ class Worker(object):
             "success": 0,
             "fail": 0
         }
+        self.wait_task_time = 0
 
         # 连接master的zookeeper-server
         # 默认zk为standalone模式下的127.0.0.1:2181
@@ -51,10 +52,13 @@ class Worker(object):
 
         # 监听任务发布
         @self.zk.DataWatch("/jetsearch/job")
-        def job_watch(data, stat):
+        def job_watch(data, stat, event):
             if data:
                 self.job = eval(data)
                 log("[JOB] receve job: %s" % data)
+            else:
+                if self.job:
+                    self.job = None
 
     def run(self, job):
         raise NotImplementedError
@@ -62,6 +66,7 @@ class Worker(object):
     def listen(self):
         while True:
             if self.job:
+
                 self.run(self.job)
             else:
                 log("[%s] Wait for job assignment..." % self.type.upper())
@@ -99,6 +104,13 @@ class Worker(object):
         else:
             self.job_status['fail'] += 1
         self.health_check.update(self.job_status)
+
+    def _update_on_job(self, working=True):
+        if working:
+            if self.zk.exists("/jetsearch/job_done/" + self.id):
+                self.zk.delete("/jetsearch/job_done/" + self.id)
+        else:
+            self.zk.ensure_path("/jetsearch/job_done/" + self.id)
 
     def disconect(self):
         """

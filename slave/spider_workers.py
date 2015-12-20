@@ -2,10 +2,8 @@
 
 import random
 import time
-
 from datetime import timedelta
 from tornado import httpclient, gen, ioloop, queues
-
 from mq.queue import FIFOQueue
 from mq.filter import DuplicateFilter
 from slave.worker import Worker
@@ -22,8 +20,9 @@ job = {}
 def log(message):
     print message
 
+
 class SpiderWorker(Worker):
-    def __init__(self,  master='127.0.0.1:2181', type='spider'):
+    def __init__(self, master='127.0.0.1:2181', type='spider'):
         Worker.__init__(self, master, type)
         # 注册任务队列
         self.spider_queue = FIFOQueue(self.redis, self.config.get("spider_queue"))
@@ -72,7 +71,7 @@ class SpiderWorker(Worker):
                     # 将失败的url再次放入队列
                     self.spider_queue.push({
                         "url": task['url'],
-                        "life": task['life']-1
+                        "life": task['life'] - 1
                     })
                     log("[FAILED] %s %s" % (task['url'], e))
             else:
@@ -81,9 +80,9 @@ class SpiderWorker(Worker):
 
                 # 将失败的url再次放入队列
                 self.spider_queue.push({
-                        "url": task['url'],
-                        "life": task['life']-1
-                    })
+                    "url": task['url'],
+                    "life": task['life'] - 1
+                })
                 log("[FAILED] %s %s" % (task['url'], result))
 
         else:
@@ -92,7 +91,7 @@ class SpiderWorker(Worker):
 
 
 class AsyncSpiderWorker(Worker):
-    def __init__(self,  master='127.0.0.1:2181', type='spider', concurrency=5, **kwargs):
+    def __init__(self, master='127.0.0.1:2181', type='spider', concurrency=5, **kwargs):
         Worker.__init__(self, master, type)
         # 注册任务队列
         self.spider_queue = FIFOQueue(self.redis, self.config.get("spider_queue"))
@@ -140,9 +139,9 @@ class AsyncSpiderWorker(Worker):
         else:
             self._update_status(False)
             self.spider_queue.push({
-                    "url": task['url'],
-                    "life": task['life'] - 1
-                })
+                "url": task['url'],
+                "life": task['life'] - 1
+            })
             log("[FAILED] %s %s" % (task['url'], response.code))
 
     @gen.coroutine
@@ -179,6 +178,7 @@ class AsyncSpiderWorker(Worker):
                 yield fetch_url()
 
         if len(self.spider_queue) > 0:
+            self._update_on_job(True)
             # 加入首个任务
             self._queue.put(eval(self.spider_queue.pop()))
 
@@ -188,11 +188,12 @@ class AsyncSpiderWorker(Worker):
 
             yield self._queue.join(timeout=timedelta(seconds=300000))
         else:
+            self.wait_task_time += 1
+            if self.wait_task_time > 5:
+                self._update_on_job(False)
             log("[SPIDER] Wait for some jobs...")
             time.sleep(3)
 
     def run(self, job):
         io_loop = ioloop.IOLoop.current()
         io_loop.run_sync(self._run)
-
-

@@ -2,7 +2,7 @@
 import time
 
 from mq.queue import FIFOQueue
-from processor.processor import DocumentProcessor
+from processor.document_processor import DocumentProcessor
 from slave.worker import Worker
 from storage.mongodb import MongodbStorage
 
@@ -23,6 +23,7 @@ class ProcessorWorker(Worker):
         processor = DocumentProcessor()
 
         while len(self.processer_queue) > 0:
+            self._update_on_job(True)
             page_id = self.processer_queue.pop()
             page = self.storage_pipline.find(self.config.get("page_table"), page_id)
             terms = processor.process(page)
@@ -35,5 +36,8 @@ class ProcessorWorker(Worker):
             log("[SUCCESS] %s" % page['href'])
 
         else:
+            self.wait_task_time += 1
+            if self.wait_task_time > 5:
+                self._update_on_job(False)
             log("[PROCESSOR] Wait for some jobs...")
             time.sleep(3)
