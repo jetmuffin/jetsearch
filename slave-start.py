@@ -5,11 +5,13 @@ from optparse import OptionParser
 import sys
 import re
 
+from slave.processor_workers import ProcessorWorker
+from slave.spider_workers import SpiderWorker, AsyncSpiderWorker
+
 logging.config.fileConfig('logging.conf')
 root_logger = logging.getLogger('root')
 root_logger.debug('test root logger...')
 
-from slave.executor import SpiderWorker, ProcessorWorker
 
 
 def print_error(message):
@@ -37,7 +39,7 @@ if __name__ == "__main__":
     if options.type == "processor":
         slave = ProcessorWorker(options.master, "processor")
     else:
-        slave = SpiderWorker(options.master, "spider")
+        slave = AsyncSpiderWorker(options.master, "spider")
 
     try:
         slave.listen()

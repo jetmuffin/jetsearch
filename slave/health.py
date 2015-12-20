@@ -20,7 +20,7 @@ class Health(threading.Thread):
             slave['heartbeat'] = Metric.get_heartbeat()
             slave['task_status'] = self.status
             self.zk.set("/jetsearch/slaves/" + self.slave_id, str(slave))
-            time.sleep(3)
+            time.sleep(1)
 
     def stop(self):
         self.end = True

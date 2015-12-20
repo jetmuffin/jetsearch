@@ -60,10 +60,11 @@ class DocumentProcessor(object):
                 terms[word]['in_title'] = in_title
                 terms[word]['in_links'] = in_links
 
-        # 计算tf值
+        # 计算tf值, 删除freq键
         # tf = term_frequent / term_count
         for word in terms.keys():
             terms[word]['tf'] = float(terms[word]['freq']) / float(term_count)
+            del terms[word]['freq']
 
         # dict转为list
         terms_list = [terms[word] for word in terms.keys()]

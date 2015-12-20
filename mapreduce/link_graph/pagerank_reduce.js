@@ -5,14 +5,16 @@ function pagerank_reduce(key, values){
     page = {
         _id: key,
         pr: 0,
+        length: 0,
         links: []
     }
     values.forEach(function(value){
        if(value.links.length){
-           page.pr += value.pr * 0.15;
+           page.pr += value.pr * 0.2;
            page.links = value.links;
+           page.length = value.length
        } else {
-           page.pr += value.pr * 0.85;
+           page.pr += value.pr * 0.8;
        }
     });
     return page

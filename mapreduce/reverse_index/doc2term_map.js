@@ -3,15 +3,17 @@
  */
 function doc2term_map() {
 	var page = this
-	var page_id = this._id;
     this.terms.forEach(function(term){
     	var doc = {
-			page_id: page_id,
+			page_id: page._id,
 			tf: term.tf,
 			in_title: term.in_title,
-			in_links: term.in_links
+			in_links: term.in_links,
+			pos: term.pos,
+			pr: page.pr
 		};
 		var value = {
+			rated: false,
 			docs: [doc]
 		};
     	emit(term.word, value);
