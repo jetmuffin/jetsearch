@@ -5,9 +5,7 @@ import time
 
 server = MongoClient("127.0.0.1", 27017)
 db = server.jetsearch
-db.tbl_term.ensure_index('_id', unique=True)
-db.tbl_doc.ensure_index('page_id', unique=True)
-db.tbl_page.ensure_index('href')
+
 
 key = raw_input("输入搜索词:")
 start = time.time()

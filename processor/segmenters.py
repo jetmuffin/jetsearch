@@ -14,15 +14,15 @@ class Segmenter(object):
 
 
 class JiebaSegmenter(Segmenter):
-    def segment(self, content):
+    def segment(self, content, cut_all=False):
         """
         使用Jieba进行分词
-        :param document: 文章爬取信息
+        :param document: 信息
         :return: list(words): 分词结果
         """
         # 允许多线程分词 - 4线程
         # jieba.enable_parallel(2)
-        word_list = list(jieba.cut(content, False))
+        word_list = list(jieba.cut(content, cut_all))
 
         return word_list
 

@@ -109,3 +109,11 @@ class RankingProcessor(Processor):
 
         result = self.db.tbl_term.map_reduce(mapper, reducer, out="tbl_term", full_response=True)
         pprint(result)
+
+
+class IndexProcessor(Processor):
+    def fire(self):
+        logging.info("[PROCESS] start adding index to each table...")
+
+        self.db.tbl_term.ensure_index('_id', unique=True)
+        self.db.tbl_page.ensure_index('href')

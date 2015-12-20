@@ -85,8 +85,10 @@ class Scheduler(object):
         ]
 
         start_time = time.time()
+        # 对链式处理器进行处理
         for processor in chain:
             processor.fire()
+
         end_time = time.time()
         logger.info("Chain processor complete, took %f s" % (end_time-start_time))
 

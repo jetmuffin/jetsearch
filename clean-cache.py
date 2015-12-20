@@ -17,6 +17,7 @@ db["tbl_pagerank"].remove()
 
 zk = KazooClient(hosts="127.0.0.1")
 zk.start()
+
 if zk.exists("/jetsearch/job"):
     zk.delete("/jetsearch/job")
 zk.stop()
