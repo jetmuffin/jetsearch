@@ -1,17 +1,9 @@
 # -*- coding: utf-8 -*-
-import random
 import urllib2
-import re
-from bs4 import BeautifulSoup
-from datetime import timedelta
-from tornado import httpclient, gen, ioloop, queues
-import urlparse
-import time
-from tornado import httpclient
-from mq.filter import DuplicateFilter
-from mq.queue import FIFOQueue
+from pprint import pprint
+
+from spiders.async_crawlers import Fetcher
 from spiders.parser import NormalParser
-from storage.mongodb import MongodbStorage
 
 
 def log(message):
@@ -60,5 +52,7 @@ class SimpleCrawler(Crawler):
         parser = NormalParser(url, html, self.job)
         return parser.parse()
 
-
-
+job = {
+    "allowed_domain": "hhu.edu.cn",
+    "start_url": "http://www.hhu.edu.cn"
+}

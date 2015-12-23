@@ -17,8 +17,8 @@ class Scheduler(object):
             "mongodb": mongodb,
             "spider_queue": "task:spider",
             "processor_queue": "task:processor",
-            "duplicate_set": "set:duplicate",
-            "storage_db": "jetsearch",
+            "duplicate_set": "set:duplicate02",
+            "storage_db": "jetsearch02",
             "page_table": "tbl_page",
             "doc_table": "tbl_doc",
             "term_table": "tbl_term"

@@ -3,8 +3,8 @@
  */
 function ranking_map() {
     weight = {
-        tf: 6,
-        pr: 2,
+        tf: 2.5,
+        pr: 5.5,
         in_title: 1.5,
         in_links: 0.5
     }
@@ -18,11 +18,12 @@ function ranking_map() {
         if(doc.pr > max_pr) max_pr = doc.pr
         if(doc.tf > max_tf) max_tf = doc.tf
     })
-
     var value = {docs:[]}
     this.value.docs.forEach(function(doc) {
         var term_doc = {}
-        term_doc.rating = doc.pr / max_pr * weight.pr +
+        term_doc.rating = 0
+        if(max_pr > 0 && max_tf > 0)
+            term_doc.rating += doc.pr / max_pr * weight.pr +
                 doc.tf / max_tf * weight.tf
         if(doc.in_title) term_doc.rating += weight.in_title
         if(doc.in_links) term_doc.rating += weight.in_links

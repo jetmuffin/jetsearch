@@ -5,9 +5,9 @@ import tornado.ioloop
 import tornado.websocket
 from tornado.options import define, options
 
+from webui.modules.search import SearchHandler, ResultHandler
 from webui.modules.slaves import SlaveHandler
 from webui.modules.index import IndexHandler
-from webui.modules.tasks import TaskHandler
 
 define("port", default=8000, help="run on the given port", type=int)
 
@@ -18,7 +18,8 @@ if __name__ == '__main__':
     app = tornado.web.Application([
         ('/', IndexHandler),
         ('/slaves', SlaveHandler),
-        ('/tasks', TaskHandler)
+        ('/search', SearchHandler),
+        ('/result', ResultHandler)
     ],
         template_path=os.path.join(os.path.dirname(__file__), "webui/templates"),
         static_path=os.path.join(os.path.dirname(__file__), "webui/static"),

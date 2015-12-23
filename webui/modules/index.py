@@ -1,5 +1,4 @@
 import tornado
-import redis
 from master.scheduler import Scheduler
 class IndexHandler(tornado.web.RequestHandler):
     def get(self):

@@ -11,26 +11,26 @@ mapper = Code(open('pagerank_map.js', 'r').read())
 reducer = Code(open('pagerank_reduce.js', 'r').read())
 
 # 初始迭代次数为10
-iteration = 10
-count = 0
-
-page = db.tbl_pagerank.find_one()
-pr_pre = page['value']['pr']
-
-while count < iteration:
-    db.tbl_pagerank.map_reduce(mapper, reducer, out="tbl_pagerank", full_response=True, verbos=True)
-    pr_post = db.tbl_pagerank.find({'_id': page['_id']})[0]['value']['pr']
-    print pr_post
-    count += 1
-    if pr_pre == pr_post:
-        break
-    pr_pre = pr_post
-
-print "iteration: %d" % count
-
+# iteration = 10
+# count = 0
+#
+# page = db.tbl_pagerank.find_one({})
+# pr_pre = page['value']['pr']
+# # print pr_pre
+# while count < iteration:
+#     db.tbl_pagerank.map_reduce(mapper, reducer, out="tbl_pagerank_t", full_response=True, verbos=True)
+#     pr_post = db.tbl_pagerank.find({'_id': page['_id']})[0]['value']['pr']
+#     print pr_post
+#     # print pr_post
+#     # count += 1
+#     # if pr_pre == pr_post:
+#     #     break
+#     # pr_pre = pr_post
+#
+# print "iteration: %d" % count
 # 更新page表
 bulk = db.tbl_page.initialize_ordered_bulk_op()
-for page in db.tbl_pagerank.find():
+for page in db.tbl_pagerank_t.find():
     bulk.find({"_id": page["_id"]}).update({
         "$set": {
             "pr": float(page['value']['pr']),

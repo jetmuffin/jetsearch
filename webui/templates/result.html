@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索结果</title>
+    <link rel="stylesheet" href="{{static_url('css/style.css')}}">
+</head>
+<div class="wrap">
+<div class="header">
+    <div class="header-left">
+        <div class="logo">
+            LOGO
+        </div>
+    </div>
+    <div class="header-right">
+        <form action="/result">
+            <div class="input-wrapper">
+                <input type="text" name="keyword" value="{{keyword}}">
+            </div>
+            <button type="submit" class="btn-search">查询</button>
+        </form>
+    </div>
+    <div class="clearfix"></div>
+    <div class="header-addon">
+        <span class="addon-result">搜索结果</span>
+        |
+        <span class="addon-time">共找到{{ results['count'] }}个结果,耗时{{time}}s</span>
+    </div>
+</div>
+<div class="main">
+{% if len(results) > 0 %}
+{% for doc in results['docs'] %}
+    <li class="result-item">
+        <div class="item-title">
+            <a href="{{ doc['href'] }}" target="_blank">{{ doc['title'] }}</a>
+        </div>
+        <div class="item-body">
+            <p>{{ doc['content'] }}</p>
+        </div>
+        <div class="item-addon">
+            <a href="{{ doc['href'] }}" target="_blank">{{ doc['href'] }}</a>
+        </div>
+    </li>
+
+
+    <br />
+
+    <br/>
+{% end %}
+    <div class="pagination">
+        <ul>
+            <li class="pages"><a href="/result?keyword={{keyword}}&page=1"><span>第一页</span></a></li>
+            {% set end = min(page+5,results['page_count']) %}
+            {% set start = max(page-5, 1) %}
+            {% for pg in range(start,end) %}
+
+                {% if pg == page %}
+                <li class="current"><a href="/result?keyword={{keyword}}&page={{pg}}">{{pg}}</a></li>
+                {% else %}
+                <li class="page"><a href="/result?keyword={{keyword}}&page={{pg}}">{{pg}}</a></li>
+                {% end %}
+
+            {% end %}
+            <li><a href="/result?keyword={{keyword}}&page={{results['page_count']}}">..{{results['page_count']}}</a></li>
+            <li class="pages"><a href="/result?keyword={{keyword}}&page={{results['page_count']}}"><span>最后一页</span></a></li>
+        </ul>
+    </div>
+{% end %}
+
+</div>
+</div>
+
+
+</body>
+</html>

@@ -17,3 +17,132 @@
 .content-container{
     padding: 20px 0;
 }
+
+.header{
+    padding: 10px 10px;
+}
+
+.header-left,.header-right{
+    float: left;
+}
+
+.logo{
+    line-height: 30px;
+    padding: 10px;
+}
+.input-wrapper{
+    height: 30px;
+    line-height: 30px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    width: 700px;
+    float: left;
+}
+
+.input-wrapper input{
+    width: 100%;
+    border: none;
+    height: 20px;
+    line-height: 20px;
+    font-size: 16px;
+    box-shadow: none;
+    padding-left: 5px;
+    outline:none;
+}
+
+.btn-search{
+    height: 40px;
+    line-height: 30px;
+    width: 200px;
+    font-size: 16px;
+    background: #1DBD9E;
+    border: 1px solid #1DBD9E;
+    color: #ffffff;
+    border-radius: 7px;
+    margin-left: 10px;
+}
+
+.header-addon{
+    margin-top: 5px;
+    margin-left: 90px;
+    color: #ddd;
+}
+
+.addon-result{
+    color: #C5552B;
+}
+
+.addon-time{
+    color: #333;
+}
+.wrap{
+    padding: 10px;
+}
+.clearfix{
+    clear:both;
+}
+
+.main{
+    margin-left: 100px;
+    margin-top: 10px;
+    padding-right: 100px;
+}
+
+li.result-item{
+    list-style: none;
+}
+.item-title a{
+    color: rgb(41, 90, 201);
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.item-body p{
+    margin: 10px 0;
+    line-height: 18px;
+    font-size: 14px;
+}
+
+.item-addon a{
+    font-size: 13px;
+    color: #008000;
+    text-decoration: none;
+}
+ul{
+    padding: 0;
+}
+.pagination{
+    text-align: center;
+}
+.pagination li{
+    float: left;
+    padding: 10px;
+    list-style: none;
+    margin-bottom: 20px;
+}
+.pagination li a{
+text-decoration: none;
+    padding: 4px 8px;
+    border: 1px solid #eaeaea;
+    border-radius: 18px;
+    color: #A2A2A2;
+    font-size: 14px;
+    line-height: 12px;
+}
+.pagination li a:hover{
+    border-color:#1DBD9E;
+}
+.pagination li.current a{
+    border-color:#1DBD9E;
+    background: #1DBD9E;
+    color: #ffffff;
+}
+.pagination li .pages span{
+    padding: 4px 8px;
+    border: 1px solid #eaeaea;
+    border-radius: 18px;
+    color: #8b8b8b;
+    font-size: 14px;
+}

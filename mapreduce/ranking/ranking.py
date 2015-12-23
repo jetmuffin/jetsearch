@@ -9,5 +9,5 @@ db = server.jetsearch
 
 mapper = Code(open('ranking_map.js', 'r').read())
 reducer = Code(open('ranking_reduce.js', 'r').read())
-result = db.tbl_term.map_reduce(mapper, reducer, out="tbl_term", full_response=True)
+result = db.tbl_term.map_reduce(mapper, reducer, out="tbl_ranked_term", full_response=True)
 print result

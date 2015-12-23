@@ -97,7 +97,7 @@ def url_filter(url):
         return False
     # 过滤含指定子串的url
     invalid_pattern = ["pdf", "mailto", "doc", "docx", "ppt", "pptx", "xls", "xlsx",
-                       "jpg", "gif", "png", "zip", "rar"]
+                       "jpg", "gif", "png", "zip", "rar", "mp3", "mp4", "flv", "avi"]
     for pattern in invalid_pattern:
         if pattern in url:
             return False

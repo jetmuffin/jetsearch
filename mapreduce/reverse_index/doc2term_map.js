@@ -13,7 +13,6 @@ function doc2term_map() {
 			pr: page.pr
 		};
 		var value = {
-			rated: false,
 			docs: [doc]
 		};
     	emit(term.word, value);

@@ -17,6 +17,7 @@ for page in pages_cursor:
 
 print len(pages)
 prs = []
+length = len(convert_dic)
 for page in pages:
     page_links = page['links']
     compressed_links = []
@@ -25,16 +26,27 @@ for page in pages:
         if convert_dic.has_key(link):
             compressed_links.append(convert_dic[link])
 
+
     if(len(compressed_links)):
         pr = {
             "_id": page['_id'],
             "value": {
                 "links": compressed_links,
-                "pr":   float(1.0/len(convert_dic))
+                "pr":   float(1.0/length),
+                "length": length
             }
         }
-        prs.append(pr)
-length = len(prs)
+    else:
+        pr = {
+            "_id": page['_id'],
+            "value": {
+                "links": [],
+                "pr":   float(1.0/length),
+                "length": length
+            }
+        }
+    prs.append(pr)
+
 for pr in prs:
     pr['value']['length'] = length
     bulk.insert(pr)
