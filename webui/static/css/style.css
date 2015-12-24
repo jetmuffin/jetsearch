@@ -110,6 +110,9 @@ li.result-item{
     color: #008000;
     text-decoration: none;
 }
+.result-item strong{
+    color: #c00;
+}
 ul{
     padding: 0;
 }

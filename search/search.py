@@ -4,7 +4,7 @@ from pymongo import MongoClient
 import time
 
 server = MongoClient("127.0.0.1", 27017)
-db = server.jetsearch
+db = server.jetsearch02
 
 
 key = raw_input("输入搜索词:")

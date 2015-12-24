@@ -11,6 +11,12 @@ def log(message):
 
 class ProcessorWorker(Worker):
     def __init__(self, master='127.0.0.1:2181', type='spider'):
+        """
+        处理执行器
+        :param master: 主节点地址
+        :param type: 执行器类型
+        :return:
+        """
         Worker.__init__(self, master, type)
 
         # 注册任务队列

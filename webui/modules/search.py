@@ -23,7 +23,7 @@ class ResultHandler(tornado.web.RequestHandler):
         if not keyword:
             self.redirect('/search')
 
-        searcher = Searcher("127.0.0.1:27017", "jetsearch")
+        searcher = Searcher("127.0.0.1:27017", "jetsearch02")
         start = time.time()
         results = searcher.search(keyword, page)
         end = time.time()

@@ -39,7 +39,7 @@ if __name__ == "__main__":
     if options.type == "processor":
         slave = ProcessorWorker(options.master, "processor")
     else:
-        slave = AsyncSpiderWorker(options.master, "spider")
+        slave = SpiderWorker(options.master, "spider")
 
     try:
         slave.listen()

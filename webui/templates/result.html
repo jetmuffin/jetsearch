@@ -32,13 +32,13 @@
 {% for doc in results['docs'] %}
     <li class="result-item">
         <div class="item-title">
-            <a href="{{ doc['href'] }}" target="_blank">{{ doc['title'] }}</a>
+            <a href="{% raw doc['href'] %}" target="_blank">{% raw doc['title'] %}</a>
         </div>
         <div class="item-body">
-            <p>{{ doc['content'] }}</p>
+            <p>{% raw doc['content'] %}</p>
         </div>
         <div class="item-addon">
-            <a href="{{ doc['href'] }}" target="_blank">{{ doc['href'] }}</a>
+            <a href="{% raw doc['href'] %}" target="_blank">{% raw doc['href'] %}</a>
         </div>
     </li>
 

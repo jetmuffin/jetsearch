@@ -9,6 +9,7 @@ from mq.filter import DuplicateFilter
 from slave.worker import Worker
 from spiders.crawlers import SimpleCrawler
 from spiders.parser import NormalParser
+from spiders.phantom_crawlers import PhantomCrawler
 from storage.mongodb import MongodbStorage
 import time
 
@@ -23,6 +24,12 @@ def log(message):
 
 class SpiderWorker(Worker):
     def __init__(self, master='127.0.0.1:2181', type='spider'):
+        """
+        spider类型执行器
+        :param master: 主节点地址
+        :param type: 执行器类型
+        :return:
+        """
         Worker.__init__(self, master, type)
         # 注册任务队列
         self.spider_queue = FIFOQueue(self.redis, self.config.get("spider_queue"))
@@ -33,8 +40,14 @@ class SpiderWorker(Worker):
         self.storage_pipline = MongodbStorage(self.mongodb, self.config.get("storage_db"))
 
     def run(self, job):
+        """
+        执行方法
+        :param job: 任务信息
+        :return:
+        """
         # 注册爬虫
-        crawler = SimpleCrawler(job, self.config)
+        crawler = PhantomCrawler()
+        parser = NormalParser(job)
 
         if len(self.spider_queue) > 0:
             task = eval(self.spider_queue.pop())
@@ -43,16 +56,16 @@ class SpiderWorker(Worker):
             if task['life'] == 0:
                 return
 
-            success, result = crawler.fetch(task['url'])
+            response = crawler.fetch(task['url'])
+            # success, result = crawler.fetch(task['url'])
+
             # 若爬虫成功爬取
-            if success:
-                # 更新任务状态
-                self._update_status(True)
+            if response['status_code'] == 200:
                 try:
-                    item = crawler.parse(task['url'], result)
+                    item = parser.parse(task['url'], response['content'])
                     # 分片写入
                     item['ram'] = random.random()
-                    new_urls = item.get('links')
+                    new_urls = item['links']
 
                     # 抓去的新链接判重后加入队列
                     for new_url in new_urls:
@@ -66,6 +79,8 @@ class SpiderWorker(Worker):
                     item = self.storage_pipline.insert(self.config.get("page_table"), item)
                     self.processer_queue.push(item.get('_id'))
 
+                    # 更新任务状态
+                    self._update_status(True)
                     log("[SUCCESS] %s." % task['url'])
                 except Exception, e:
                     # 将失败的url再次放入队列
@@ -83,7 +98,7 @@ class SpiderWorker(Worker):
                     "url": task['url'],
                     "life": task['life'] - 1
                 })
-                log("[FAILED] %s %s" % (task['url'], result))
+                log("[FAILED] %s %s" % (task['url'], response['status_code']))
 
         else:
             log("[SPIDER] Wait for some jobs...")
@@ -92,6 +107,14 @@ class SpiderWorker(Worker):
 
 class AsyncSpiderWorker(Worker):
     def __init__(self, master='127.0.0.1:2181', type='spider', concurrency=5, **kwargs):
+        """
+        异步爬虫执行器
+        :param master: 主节点地址
+        :param type: 执行器类型
+        :param concurrency: 并发数
+        :param kwargs:
+        :return:
+        """
         Worker.__init__(self, master, type)
         # 注册任务队列
         self.spider_queue = FIFOQueue(self.redis, self.config.get("spider_queue"))
@@ -146,6 +169,11 @@ class AsyncSpiderWorker(Worker):
 
     @gen.coroutine
     def get_page(self, task):
+        """
+        获取页面内容
+        :param task:
+        :return:
+        """
         try:
             response = yield self.fetch(task['url'])
         except Exception as e:
@@ -197,3 +225,4 @@ class AsyncSpiderWorker(Worker):
     def run(self, job):
         io_loop = ioloop.IOLoop.current()
         io_loop.run_sync(self._run)
+

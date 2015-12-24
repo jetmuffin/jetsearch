@@ -13,7 +13,14 @@ class Processor(object):
 
 
 class CompressProcessor(Processor):
+    """
+    压缩链式处理器
+    """
     def fire(self):
+        """
+        处理器执行方法
+        :return:
+        """
         logging.info("[PROCESS] start compressing page information...")
         self.db.tbl_pagerank.drop()
         bulk = self.db.tbl_pagerank.initialize_unordered_bulk_op()
@@ -54,6 +61,9 @@ class CompressProcessor(Processor):
 
 
 class PagerankProcessor(Processor):
+    """
+    pagerank处理器
+    """
     def fire(self):
         logging.info("[PROCESS] start calculating pagerank of each page...")
 
@@ -91,6 +101,9 @@ class PagerankProcessor(Processor):
 
 
 class ReverseProcessor(Processor):
+    """
+    倒排索引处理器
+    """
     def fire(self):
         logging.info("[PROCESS] start adding reverse index to each term...")
 
@@ -101,6 +114,9 @@ class ReverseProcessor(Processor):
         pprint(result)
 
 class RankingProcessor(Processor):
+    """
+    排名处理器
+    """
     def fire(self):
         logging.info("[PROCESS] start ranking each page of each term...")
 
@@ -112,6 +128,9 @@ class RankingProcessor(Processor):
 
 
 class IndexProcessor(Processor):
+    """
+    索引处理器
+    """
     def fire(self):
         logging.info("[PROCESS] start adding index to each table...")
 

@@ -3,15 +3,14 @@ from pymongo import MongoClient
 from pprint import pprint
 
 server = MongoClient("127.0.0.1", 27017)
-db = server.jetsearch
+db = server.jetsearch02
 db.tbl_pagerank.drop()
 bulk = db.tbl_pagerank.initialize_unordered_bulk_op()
 
-pages_cursor = db.tbl_page.find()
 convert_dic = {}
 pages = []
 
-for page in pages_cursor:
+for page in db.tbl_page.find():
     convert_dic[page['href']] = page['_id']
     pages.append(page)
 

@@ -4,7 +4,7 @@ from bson import Code
 from pymongo import MongoClient
 
 server = MongoClient("127.0.0.1", 27017)
-db = server.jetsearch
+db = server.jetsearch02
 
 
 mapper = Code(open('ranking_map.js', 'r').read())

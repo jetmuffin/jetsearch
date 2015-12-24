@@ -11,13 +11,20 @@ logger = logging.getLogger('root.Scheduler')
 
 class Scheduler(object):
     def __init__(self, zk='127.0.0.1:2181', redis='127.0.0.1:6379', mongodb='127.0.0.1:27017'):
+        """
+        任务调度器
+        :param zk: zookeeper地址
+        :param redis: redis地址
+        :param mongodb: mongodb地址
+        :return:
+        """
         self.config = {
             "zk": zk,
             "redis": redis,
             "mongodb": mongodb,
             "spider_queue": "task:spider",
             "processor_queue": "task:processor",
-            "duplicate_set": "set:duplicate02",
+            "duplicate_set": "set:duplicate",
             "storage_db": "jetsearch02",
             "page_table": "tbl_page",
             "doc_table": "tbl_doc",
@@ -28,10 +35,10 @@ class Scheduler(object):
         self.slaves = {}
 
         # 启动zookeeper
+        # 保证节点存在
+        # slaves存储子节点信息, job_done存储完成任务节点
         self.zk = KazooClient(hosts=zk)
         self.zk.start()
-
-        # 保证节点存在
         self.zk.ensure_path("/jetsearch")
         self.zk.ensure_path("/jetsearch/slaves")
         self.zk.ensure_path("/jetsearch/job_done")
@@ -51,13 +58,14 @@ class Scheduler(object):
             # slave断开连接
             else:
                 disconnected_slave = [i for i in self.slaves if i not in slaves]
-                # 排除初始连接的问题
+                # 排除初始连接干扰的问题
                 if len(disconnected_slave) != 0:
                     slave_id = disconnected_slave[0]
                     slave = self.slaves.pop(slave_id)
 
                     logger.info("[%s] %s lost connecttion." % (slave['type'].upper(), slave['id']))
 
+        # 监听任务完成
         @self.zk.ChildrenWatch("/jetsearch/job_done")
         def job_watch(job_done):
             if len(job_done) == len(self.slaves) and len(job_done) > 0:
@@ -67,12 +75,21 @@ class Scheduler(object):
                 self.chain_process()
 
     def update_config(self, config):
+        """
+        通过zookeeper更新任务配置
+        :param config: 任务配置
+        :return:
+        """
         if self.zk.exists("/jetsearch/config"):
             self.zk.set("/jetsearch/config", str(config))
         else:
             self.zk.create("/jetsearch/config", str(config))
 
     def chain_process(self):
+        """
+        链式处理任务
+        :return:
+        """
         mongo_host, mongo_port = self.config.get("mongodb").split(":")
         mongo = MongoClient(mongo_host, int(mongo_port))
         db = mongo[self.config.get("storage_db")]

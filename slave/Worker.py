@@ -14,6 +14,12 @@ def log(message):
 
 class Worker(object):
     def __init__(self, master='127.0.0.1:2181', type='spider'):
+        """
+        子节点执行器
+        :param master: 主节点地址
+        :param type: 节点类别
+        :return:
+        """
         self.type = type
         self.job = None
         self.job_status = {
@@ -64,6 +70,10 @@ class Worker(object):
         raise NotImplementedError
 
     def listen(self):
+        """
+        子节点等待任务发布
+        :return:
+        """
         while True:
             if self.job:
 
@@ -98,6 +108,11 @@ class Worker(object):
         return host + "-" + Encrypt.md5(host + ip + str(time.time()))[0:8]
 
     def _update_status(self, success=True):
+        """
+        更新任务状态
+        :param success: 任务是否成功
+        :return:
+        """
         self.job_status['total'] += 1
         if success:
             self.job_status['success'] += 1
@@ -106,6 +121,11 @@ class Worker(object):
         self.health_check.update(self.job_status)
 
     def _update_on_job(self, working=True):
+        """
+        更新工作状态
+        :param working: 节点是否在工作
+        :return:
+        """
         if working:
             if self.zk.exists("/jetsearch/job_done/" + self.id):
                 self.zk.delete("/jetsearch/job_done/" + self.id)

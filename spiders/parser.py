@@ -1,30 +1,33 @@
 # -*- coding: utf-8 -*-
 import urlparse
 import re
+from pprint import pprint
+
 from bs4 import BeautifulSoup
 
+from spiders.phantom_crawlers import PhantomCrawler
+
+
 class Parser(object):
-    def __init__(self, url, html, job):
-        self.url = url
-        self.html = html
+    def __init__(self, job):
         self.job = job
 
-    def parse(self):
+    def parse(self, url, content):
         raise NotImplementedError
 
 class NormalParser(Parser):
-    def parse(self):
-        if not self.url:
+    def parse(self, url, content):
+        if not url:
             print "Cannot parse before fetch!"
             raise RuntimeError
-        soup = BeautifulSoup(self.html, "lxml")
+        soup = BeautifulSoup(content, "lxml")
         item = {
             "title": self.extract_title(soup),
             "content": self.extract_content(soup),
-            "href": self.url,
-            "links": self.extract_links(soup),
+            "href": url,
+            "links": self.extract_links(current_url=url, soup=soup),
             "link_contents": self.extract_link_contents(soup),
-            # "raw_content": self.content
+            # "raw_content": content
         }
         return item
 
@@ -68,7 +71,7 @@ class NormalParser(Parser):
 
         return link_contents
 
-    def extract_links(self, soup):
+    def extract_links(self, current_url, soup):
         """
         抓去页面中所有链接信息
         :param soup:
@@ -86,7 +89,7 @@ class NormalParser(Parser):
 
                 elif len(url) and url[0] == '/':
                     # 处理相对路径
-                    url = urlparse.urljoin(self.url, url)
+                    url = urlparse.urljoin(current_url, url)
                     next_urls.append(url_encode(url))
 
         return next_urls
@@ -106,3 +109,4 @@ def url_filter(url):
 def url_encode(str):
     repr_str = repr(str).replace(r'\x', '%')
     return repr_str[1:-1]
+

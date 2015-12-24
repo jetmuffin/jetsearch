@@ -3,14 +3,15 @@
  */
 function pagerank_map(){
     var page = this;
-    this.value.links.forEach(function(link){
-        if(page.value.links.length > 0){
+    if(page.value.links.length > 0){
+        this.value.links.forEach(function(link){
             emit(link, {
                 pr: page.value.pr / page.value.links.length,
-                links: []
+                links: [],
+                length: page.value.length
             })
-        }
-    });
+        });
+    }
     emit(page._id, {
         pr: 1 / page.value.length,
         links: page.value.links,

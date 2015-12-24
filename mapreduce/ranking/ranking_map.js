@@ -3,10 +3,10 @@
  */
 function ranking_map() {
     weight = {
-        tf: 2.5,
-        pr: 5.5,
-        in_title: 1.5,
-        in_links: 0.5
+        tf: 1.5,
+        pr: 4.5,
+        in_title: 3.9,
+        in_links: 0.1
     }
 
     var id = this._id

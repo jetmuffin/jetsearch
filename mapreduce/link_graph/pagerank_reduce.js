@@ -9,7 +9,7 @@ function pagerank_reduce(key, values){
         links: []
     }
     values.forEach(function(value){
-       if(value.links.length){
+       if(value.length > 0){
            page.pr += value.pr * 0.2;
            page.links = value.links;
            page.length = value.length
