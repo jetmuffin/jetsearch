@@ -51,6 +51,7 @@ class SpiderWorker(Worker):
 
         if len(self.spider_queue) > 0:
             task = eval(self.spider_queue.pop())
+            self.task = task
 
             # 若该任务失败次数过多,不再处理该任务
             if task['life'] == 0:
@@ -101,9 +102,13 @@ class SpiderWorker(Worker):
                 log("[FAILED] %s %s" % (task['url'], response['status_code']))
 
         else:
+            self.task = None
             log("[SPIDER] Wait for some jobs...")
             time.sleep(3)
 
+    def task_stop(self):
+        if self.task:
+            self.spider_queue.push(str(self.task))
 
 class AsyncSpiderWorker(Worker):
     def __init__(self, master='127.0.0.1:2181', type='spider', concurrency=5, **kwargs):

@@ -22,6 +22,7 @@ class Worker(object):
         """
         self.type = type
         self.job = None
+        self.task = None
         self.job_status = {
             "total": 0,
             "success": 0,
@@ -67,6 +68,9 @@ class Worker(object):
                     self.job = None
 
     def run(self, job):
+        raise NotImplementedError
+
+    def task_stop(self):
         raise NotImplementedError
 
     def listen(self):
@@ -137,6 +141,7 @@ class Worker(object):
         停止心跳,删除slave节点信息
         """
         log("[%s] disconnect from master...." % self.type)
+        self.task_stop()
         self.health_check.stop()
         self.health_check.join()
         self.zk.delete("/jetsearch/slaves/" + self.id)

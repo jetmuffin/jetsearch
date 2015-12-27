@@ -32,6 +32,7 @@ class ProcessorWorker(Worker):
             self._update_on_job(True)
             page_id = self.processer_queue.pop()
             page = self.storage_pipline.find(self.config.get("page_table"), page_id)
+            self.task = page
             terms = processor.process(page)
 
             # 将page_table抽取的信息存入doc_table
@@ -43,7 +44,12 @@ class ProcessorWorker(Worker):
 
         else:
             self.wait_task_time += 1
+            self.task = None
             if self.wait_task_time > 5:
                 self._update_on_job(False)
             log("[PROCESSOR] Wait for some jobs...")
             time.sleep(3)
+
+    def task_stop(self):
+        if self.task:
+            self.processer_queue.push(self.task)

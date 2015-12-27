@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import ConfigParser
 import logging
 
 import time
@@ -9,8 +10,9 @@ from processor.chain_processor import CompressProcessor, PagerankProcessor, Reve
 
 logger = logging.getLogger('root.Scheduler')
 
+
 class Scheduler(object):
-    def __init__(self, zk='127.0.0.1:2181', redis='127.0.0.1:6379', mongodb='127.0.0.1:27017'):
+    def __init__(self, config_path="jetsearch.conf"):
         """
         任务调度器
         :param zk: zookeeper地址
@@ -18,18 +20,7 @@ class Scheduler(object):
         :param mongodb: mongodb地址
         :return:
         """
-        self.config = {
-            "zk": zk,
-            "redis": redis,
-            "mongodb": mongodb,
-            "spider_queue": "task:spider",
-            "processor_queue": "task:processor",
-            "duplicate_set": "set:duplicate",
-            "storage_db": "jetsearch02",
-            "page_table": "tbl_page",
-            "doc_table": "tbl_doc",
-            "term_table": "tbl_term"
-        }
+        self.config = self._read_config(config_path)
 
         # 初始注册slave为空
         self.slaves = {}
@@ -39,10 +30,7 @@ class Scheduler(object):
         # slaves存储子节点信息, job_done存储完成任务节点
         self.zk = KazooClient(hosts=zk)
         self.zk.start()
-        self.zk.ensure_path("/jetsearch")
-        self.zk.ensure_path("/jetsearch/slaves")
-        self.zk.ensure_path("/jetsearch/job_done")
-        self.update_config(self.config)
+        self._init_zk()
 
         # 监听slaves信息
         @self.zk.ChildrenWatch("/jetsearch/slaves")
@@ -72,7 +60,7 @@ class Scheduler(object):
                 job = self.zk.get("/jetsearch/job")[0]
                 logger.info("[JOB] job finished %s " % job)
                 self.zk.delete("/jetsearch/job")
-                self.chain_process()
+                # self.chain_process()
 
     def update_config(self, config):
         """
@@ -107,7 +95,41 @@ class Scheduler(object):
             processor.fire()
 
         end_time = time.time()
-        logger.info("Chain processor complete, took %f s" % (end_time-start_time))
+        logger.info("Chain processor complete, took %f s" % (end_time - start_time))
+
+    def _read_config(self, config_path):
+        parser = ConfigParser.ConfigParser()
+        config = {}
+
+        parser.read(config_path)
+        sections = parser.sections()
+        for section in sections:
+            options = parser.options(section)
+            values = parser.items(section)
+            for item in values:
+                config[item[0]] = item[1]
+
+        return config
+        # config = {
+        #     "zk": cf.get("zookeeper", "zookeeper_url"),
+        #     "redis": cf.get("redis", "redis_url"),
+        #     "mongodb": cf.get("mongodb", "mongodb_url"),
+        #     "spider_queue": cf.get("redis", "spider_queue"),
+        #     "processor_queue": cf.get("redis", "processor_queue"),
+        #     "duplicate_set": cf.get("redis", "duplicate_set"),
+        #     "storage_db": cf.get(""),
+        #     "page_table": "tbl_page",
+        #     "doc_table": "tbl_doc",
+        #     "term_table": "tbl_term"
+        # }
+
+    def _init_zk(self):
+        self.zk.ensure_path("/jetsearch")
+        self.zk.delete("/jetsearch/slaves")
+        self.zk.delete("/jetsearch/job_done")
+        self.zk.ensure_path("/jetsearch/slaves")
+        self.zk.ensure_path("/jetsearch/job_done")
+        self.update_config(self.config)
 
     def __del__(self):
         self.zk.stop()

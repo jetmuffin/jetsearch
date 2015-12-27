@@ -30,7 +30,9 @@ class DocumentProcessor(object):
         # 获取分词结果list
         segmenter = JiebaSegmenter()
         content_word_list = segmenter.segment(document['content'])
-        title_word_list = segmenter.segment(document['title'])
+        title_word_list = []
+        if document['title']:
+            title_word_list = segmenter.segment(document['title'])
 
         # 统计词袋信息
         # "freq":         词频,
@@ -45,6 +47,7 @@ class DocumentProcessor(object):
         # 扫描content,统计frequent, position
         for word in content_word_list:
             position += 1
+            term_count += 1
             # 过滤停词
             if self.filter(word):
                 continue
@@ -54,6 +57,7 @@ class DocumentProcessor(object):
                     "word": word,
                     "freq": 1,
                     "pos": [position],
+                    "title_freq": 0
                 }
             else:
                 terms[word]['word'] = word
@@ -63,16 +67,21 @@ class DocumentProcessor(object):
         # 扫描title,统计title_freq
         for word in title_word_list:
             title_term_count += 1
+            term_count += 1
             if word not in terms:
                 terms[word] = {
                     "word": word,
                     "freq": 1,
                     "title_freq": 1,
+                    "pos": []
                 }
             else:
-                terms[word]['word'] = word
-                terms[word]['freq'] += 1
-                terms[word]['title_freq'] += 1
+                if not terms[word].has_key('title_freq'):
+                    terms[word]['title_freq'] = 1
+                    terms[word]['freq'] += 1
+                else:
+                    terms[word]['freq'] += 1
+                    terms[word]['title_freq'] += 1
 
         # 计算tf值, 删除freq键
         # tf = term_frequent / term_count
@@ -82,8 +91,11 @@ class DocumentProcessor(object):
 
         # 计算title_tf值,删除title_freq键
         for word in terms.keys():
-            terms[word]['title_tf'] = float(terms[word]['title_freq']) / float(title_term_count)
-            del terms[word]['freq']
+            if title_term_count > 0:
+                terms[word]['title_tf'] = float(terms[word]['title_freq']) / float(title_term_count)
+            else:
+                terms[word]['title_tf'] = 0
+            del terms[word]['title_freq']
 
         # dict转为list
         terms_list = [terms[word] for word in terms.keys()]
@@ -111,3 +123,8 @@ class DocumentProcessor(object):
             return True
 
         return False
+
+document = {
+    "title": "河海大学计算机与信息学院",
+    "content": "河海大学是一所有近百年办学历史，以水利为特色，工科为主，多学科协调发展的教育部直属全国重点大学，是国家首批授权授予学"
+}
