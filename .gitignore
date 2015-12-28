@@ -3,3 +3,8 @@
 .DS_Store
 out
 output
+test-chain.py
+test-search.py
+clean-cache.py
+clean-error.py
+data-import.py
