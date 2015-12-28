@@ -16,10 +16,8 @@ if __name__ == '__main__':
     tornado.options.parse_command_line()
 
     app = tornado.web.Application([
-        ('/', IndexHandler),
-        ('/slaves', SlaveHandler),
-        ('/search', SearchHandler),
-        ('/result', ResultHandler)
+        ('/', SearchHandler),
+        ('/q', ResultHandler)
     ],
         template_path=os.path.join(os.path.dirname(__file__), "webui/templates"),
         static_path=os.path.join(os.path.dirname(__file__), "webui/static"),

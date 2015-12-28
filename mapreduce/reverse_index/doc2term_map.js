@@ -7,8 +7,7 @@ function doc2term_map() {
     	var doc = {
 			page_id: page._id,
 			tf: term.tf,
-			in_title: term.in_title,
-			in_links: term.in_links,
+			title_tf: term.title_tf,
 			pos: term.pos,
 			pr: page.pr
 		};
@@ -17,4 +16,4 @@ function doc2term_map() {
 		};
     	emit(term.word, value);
     });
-};
+}

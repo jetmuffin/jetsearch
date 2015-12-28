@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from pprint import pprint
+
 from segmenters import JiebaSegmenter
 import sys
 
@@ -68,6 +70,9 @@ class DocumentProcessor(object):
         for word in title_word_list:
             title_term_count += 1
             term_count += 1
+            # 过滤停词
+            if self.filter(word):
+                continue
             if word not in terms:
                 terms[word] = {
                     "word": word,
@@ -124,7 +129,3 @@ class DocumentProcessor(object):
 
         return False
 
-document = {
-    "title": "河海大学计算机与信息学院",
-    "content": "河海大学是一所有近百年办学历史，以水利为特色，工科为主，多学科协调发展的教育部直属全国重点大学，是国家首批授权授予学"
-}

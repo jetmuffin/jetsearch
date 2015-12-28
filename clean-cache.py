@@ -9,7 +9,7 @@ redis.delete("task:processor")
 
 
 mongodb = MongoClient(host="127.0.0.1", port=27017)
-db = mongodb["jetsearch02"]
+db = mongodb["jetsearch03"]
 db["tbl_page"].remove()
 db["tbl_doc"].remove()
 db["tbl_term"].remove()

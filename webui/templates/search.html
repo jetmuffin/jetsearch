@@ -3,11 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>搜索</title>
+    <link rel="stylesheet" href="{{static_url('css/semantic/dist/semantic.min.css')}}">
+    <link rel="stylesheet" href="{{static_url('css/style.css')}}">
 </head>
 <body>
-<form action="/result">
-    <input type="text" name="keyword" class="jet-input">
-    <button type="submit">submit</button>
-</form>
+  <body>
+    <header>
+        <div class="brand"><img src="{{static_url('img/logo.png')}}" alt="jetsearch" width="120"></div>
+        <div class="nav">
+            <ul>
+                <li><iframe class="github-star" src="https://ghbtns.com/github-btn.html?user=JetMuffin&repo=jetsearch&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe></li>
+                <li><iframe class="github-follow" src="https://ghbtns.com/github-btn.html?user=JetMuffin&type=follow&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe></li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </header>
+    <div class="search-wrapper content">
+        <div class="ui text container">
+            <h1 class="title">Full text retrieval for HHU</h1>
+            <div class="ui search">
+                <div class="ui icon input jetsearch">
+                    <form action="/q">
+                        <input type="text" placeholder="Search..." name="keyword" class="jetsearch">
+                    </form>
+                    <i class="search icon"></i>
+                </div>
+            </div>
+            <div class="addon">
+                <span>82,617 pages in</span>
+                <i class="china flag"></i>
+                <span>hhu.edu.cn</span>
+            </div>
+        </div>
+    </div>
+    <footer>
+         <div class="more"> Learn more things about jetsearch <a href="http://github.jetmuffin.io/">github.jetmuffin.io.</a></div>
+         <div class="links">
+            <ul>
+                <li><a href="https://github.com/JetMuffin">Github</a></li>
+                <li><a href="http://weibo.com/u/1922357801">Weibo</a></li>
+                <li><a href="https://www.zhihu.com/people/JetMuffin">Zhihu</a></li>
+                <li><a href="mailto:564936642@qq.com">Mail</a></li>
+            </ul>
+         </div>
+        <div class="clearfix"></div>
+    </footer>
+    <script src="{{static_url('js/jquery.min.js')}}"></script>
+    <script src="{{static_url('js/normal.js')}}"></script>
+  </body>
 </body>
 </html>

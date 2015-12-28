@@ -2,16 +2,202 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5cacc05d-fac9-4c6e-8d47-1d47c689152c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jetsearch.conf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/themes/basic/assets/fonts/icons.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/themes/basic/assets/fonts/icons.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/themes/basic/assets/fonts/icons.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/themes/default/assets/fonts/icons.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/themes/default/assets/fonts/icons.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/themes/default/assets/fonts/icons.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/themes/default/assets/fonts/icons.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/themes/default/assets/images/flags.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/themes/github/assets/fonts/octicons-local.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/themes/github/assets/fonts/octicons.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/themes/github/assets/fonts/octicons.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/img/index-bg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/img/logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/accordion.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/accordion.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/accordion.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/accordion.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/ad.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/ad.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/api.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/api.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/breadcrumb.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/breadcrumb.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/button.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/button.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/card.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/card.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/checkbox.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/checkbox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/checkbox.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/checkbox.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/comment.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/comment.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/container.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/container.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/dimmer.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/dimmer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/dimmer.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/dimmer.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/divider.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/divider.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/dropdown.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/dropdown.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/dropdown.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/dropdown.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/embed.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/embed.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/embed.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/embed.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/feed.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/feed.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/flag.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/flag.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/form.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/form.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/form.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/form.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/grid.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/grid.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/header.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/header.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/icon.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/icon.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/image.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/image.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/input.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/input.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/item.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/item.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/label.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/label.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/list.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/list.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/loader.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/loader.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/menu.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/menu.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/message.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/message.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/modal.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/modal.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/modal.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/modal.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/nag.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/nag.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/nag.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/nag.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/popup.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/popup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/popup.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/popup.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/progress.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/progress.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/progress.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/progress.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/rail.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/rail.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/rating.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/rating.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/rating.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/rating.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/reset.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/reset.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/reveal.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/reveal.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/search.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/search.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/search.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/search.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/segment.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/segment.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/shape.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/shape.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/shape.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/shape.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/sidebar.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/sidebar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/sidebar.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/sidebar.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/site.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/site.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/site.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/site.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/state.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/state.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/statistic.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/statistic.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/step.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/step.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/sticky.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/sticky.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/sticky.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/sticky.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/tab.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/tab.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/tab.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/tab.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/table.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/table.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/transition.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/transition.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/transition.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/transition.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/visibility.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/components/visibility.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/semantic.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/semantic.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/semantic.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/semantic.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/themes/basic/assets/fonts/icons.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/themes/default/assets/fonts/icons.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/css/semantic/dist/themes/github/assets/fonts/octicons.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webui/static/js/normal.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/map.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/mapreduce/duplicate_removal/duplicate_removal_map.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/reduce.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/search/search.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webui/main.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webui/static/css/bootstrap-theme.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webui/static/css/bootstrap-theme.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webui/static/css/bootstrap-theme.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webui/static/css/bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webui/static/css/bootstrap.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webui/static/css/bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webui/static/fonts/glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webui/static/fonts/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webui/static/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webui/static/fonts/glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webui/static/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webui/static/js/bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webui/static/js/bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/webui/static/js/npm.js" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/mapreduce/duplicate_removal/__init__.py" afterPath="$PROJECT_DIR$/api/api_server.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/search/__init__.py" afterPath="$PROJECT_DIR$/api/api_handlers.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data-import.py" afterPath="$PROJECT_DIR$/data-import.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clean-cache.py" afterPath="$PROJECT_DIR$/clean-cache.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clean-error.py" afterPath="$PROJECT_DIR$/clean-error.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jetsearch.conf" afterPath="$PROJECT_DIR$/jetsearch.conf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mapreduce/link_graph/pagerank.py" afterPath="$PROJECT_DIR$/mapreduce/link_graph/pagerank.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mapreduce/reverse_index/doc2term_map.js" afterPath="$PROJECT_DIR$/mapreduce/reverse_index/doc2term_map.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/master-start.py" afterPath="$PROJECT_DIR$/master-start.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/master-start.sh" afterPath="$PROJECT_DIR$/master-start.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/master/scheduler.py" afterPath="$PROJECT_DIR$/master/scheduler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/master/searcher.py" afterPath="$PROJECT_DIR$/master/searcher.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/metrics/metric.py" afterPath="$PROJECT_DIR$/metrics/metric.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/processor/document_processor.py" afterPath="$PROJECT_DIR$/processor/document_processor.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/processor/stopwords" afterPath="$PROJECT_DIR$/processor/stopwords" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/slave/Worker.py" afterPath="$PROJECT_DIR$/slave/Worker.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/slave/processor_workers.py" afterPath="$PROJECT_DIR$/slave/processor_workers.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/slave/spider_workers.py" afterPath="$PROJECT_DIR$/slave/spider_workers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spiders/phantom.js" afterPath="$PROJECT_DIR$/spiders/phantom.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spiders/phantom_crawlers.py" afterPath="$PROJECT_DIR$/spiders/phantom_crawlers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webui-start.py" afterPath="$PROJECT_DIR$/webui-start.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webui/static/css/style.css" afterPath="$PROJECT_DIR$/webui/static/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webui/static/js/jquery.min.js" afterPath="$PROJECT_DIR$/webui/static/js/jquery.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webui/templates/result.html" afterPath="$PROJECT_DIR$/webui/templates/result.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webui/templates/search.html" afterPath="$PROJECT_DIR$/webui/templates/search.html" />
     </list>
     <ignored path="jetsearch.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,33 +250,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="scheduler.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/master/scheduler.py">
+      <file leaf-file-name="search.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webui/templates/search.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="51" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
-              <folding>
-                <element signature="e#24#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="master-start.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/master-start.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4516129">
-              <caret line="33" column="90" selection-start-line="33" selection-start-column="90" selection-end-line="33" selection-end-column="90" />
+              <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jetsearch.conf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/jetsearch.conf">
+      <file leaf-file-name="result.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/webui/templates/result.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="8" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.71955717">
+              <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -113,57 +287,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/slave/Worker.py" />
-        <option value="$PROJECT_DIR$/slave/processor_worker.py" />
-        <option value="$PROJECT_DIR$/slave/executor.py" />
-        <option value="$PROJECT_DIR$/processor/chain_processos.py" />
-        <option value="$PROJECT_DIR$/test-mr.py" />
-        <option value="$PROJECT_DIR$/processor/segmenters.py" />
-        <option value="$PROJECT_DIR$/mapreduce/reverse_index/doc2term_map.js" />
-        <option value="$PROJECT_DIR$/test-chain.py" />
-        <option value="$PROJECT_DIR$/spiders/crawlers.py" />
-        <option value="$PROJECT_DIR$/test-search.py" />
-        <option value="$PROJECT_DIR$/webui/main.py" />
         <option value="$PROJECT_DIR$/webui/modules/index.py" />
         <option value="$PROJECT_DIR$/webui/modules/results.py" />
-        <option value="$PROJECT_DIR$/webui-start.py" />
-        <option value="$PROJECT_DIR$/webui/templates/search.html" />
         <option value="$PROJECT_DIR$/search/searcher.py" />
         <option value="$PROJECT_DIR$/spiders/async_crawlers.py" />
-        <option value="$PROJECT_DIR$/spiders/phantom.js" />
         <option value="$PROJECT_DIR$/slave-start.py" />
-        <option value="$PROJECT_DIR$/clean-cache.py" />
         <option value="$PROJECT_DIR$/test-job.py" />
         <option value="$PROJECT_DIR$/spiders/parser.py" />
-        <option value="$PROJECT_DIR$/spiders/phantom_crawlers.py" />
-        <option value="$PROJECT_DIR$/webui/templates/result.html" />
         <option value="$PROJECT_DIR$/webui/static/css/style.css" />
-        <option value="$PROJECT_DIR$/clean-error.py" />
         <option value="$PROJECT_DIR$/mapreduce/duplicate_removal/duplicate_removal_map.js" />
         <option value="$PROJECT_DIR$/mapreduce/link_graph/page_compress.py" />
         <option value="$PROJECT_DIR$/mapreduce/link_graph/pagerank_map.js" />
         <option value="$PROJECT_DIR$/mapreduce/link_graph/pagerank_reduce.js" />
-        <option value="$PROJECT_DIR$/mapreduce/link_graph/pagerank.py" />
         <option value="$PROJECT_DIR$/mapreduce/reverse_index/doc2term.py" />
         <option value="$PROJECT_DIR$/mapreduce/reverse_index/doc2term_reduce.js" />
         <option value="$PROJECT_DIR$/mapreduce/ranking/ranking.py" />
         <option value="$PROJECT_DIR$/search/search.py" />
         <option value="$PROJECT_DIR$/webui/modules/search.py" />
-        <option value="$PROJECT_DIR$/master/searcher.py" />
         <option value="$PROJECT_DIR$/mapreduce/ranking/ranking_map.js" />
         <option value="$PROJECT_DIR$/test-pr.py" />
         <option value="$PROJECT_DIR$/slave/health.py" />
         <option value="$PROJECT_DIR$/processor/chain_processor.py" />
         <option value="$PROJECT_DIR$/storage/mongodb.py" />
-        <option value="$PROJECT_DIR$/metrics/metric.py" />
-        <option value="$PROJECT_DIR$/slave/worker.py" />
-        <option value="$PROJECT_DIR$/slave/spider_workers.py" />
         <option value="$PROJECT_DIR$/data-import.py" />
-        <option value="$PROJECT_DIR$/processor/document_processor.py" />
         <option value="$PROJECT_DIR$/slave/processor_workers.py" />
         <option value="$PROJECT_DIR$/master/service.py" />
+        <option value="$PROJECT_DIR$/master-start.sh" />
+        <option value="$PROJECT_DIR$/master-start.py" />
+        <option value="$PROJECT_DIR$/api/api_server.py" />
+        <option value="$PROJECT_DIR$/slave/worker.py" />
+        <option value="$PROJECT_DIR$/mapreduce/reverse_index/doc2term_map.js" />
+        <option value="$PROJECT_DIR$/webui/main.py" />
+        <option value="$PROJECT_DIR$/processor/document_processor.py" />
+        <option value="$PROJECT_DIR$/mapreduce/link_graph/pagerank.py" />
+        <option value="$PROJECT_DIR$/api/api_handlers.py" />
+        <option value="$PROJECT_DIR$/webui_py/templates/search.html" />
+        <option value="$PROJECT_DIR$/webui_py/modules/search.py" />
+        <option value="$PROJECT_DIR$/processor/stopwords" />
+        <option value="$PROJECT_DIR$/webui_py/templates/result.html" />
+        <option value="$PROJECT_DIR$/webui_py/static/css/style.css" />
+        <option value="$PROJECT_DIR$/webui-start.py" />
+        <option value="$PROJECT_DIR$/spiders/phantom.js" />
+        <option value="$PROJECT_DIR$/clean-error.py" />
+        <option value="$PROJECT_DIR$/master/searcher.py" />
         <option value="$PROJECT_DIR$/jetsearch.conf" />
+        <option value="$PROJECT_DIR$/clean-cache.py" />
         <option value="$PROJECT_DIR$/master/scheduler.py" />
+        <option value="$PROJECT_DIR$/metrics/metric.py" />
+        <option value="$PROJECT_DIR$/spiders/phantom_crawlers.py" />
+        <option value="$PROJECT_DIR$/slave/spider_workers.py" />
+        <option value="$PROJECT_DIR$/webui/templates/search.html" />
+        <option value="$PROJECT_DIR$/webui/templates/result.html" />
       </list>
     </option>
   </component>
@@ -173,10 +347,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1400" />
-    <option name="y" value="-72" />
-    <option name="width" value="1400" />
-    <option name="height" value="1027" />
+    <option name="x" value="131" />
+    <option name="y" value="50" />
+    <option name="width" value="1116" />
+    <option name="height" value="663" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -203,8 +377,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -223,36 +395,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jetsearch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jetsearch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jetsearch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jetsearch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -264,72 +410,21 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/webui_py/static/css/semantic" />
+      <recent name="$PROJECT_DIR$/webui_py/static/css" />
+      <recent name="$PROJECT_DIR$/webui_py/static/js" />
+      <recent name="$PROJECT_DIR$/webui_py/static/img" />
+      <recent name="$PROJECT_DIR$/master" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/mapreduce/reverse" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/master" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/master" />
-      <recent name="$PROJECT_DIR$/webui" />
-    </key>
   </component>
-  <component name="RunManager" selected="Python.data-import">
-    <configuration default="false" name="data-import" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="jetsearch" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data-import.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="ranking" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mapreduce/ranking" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="jetsearch" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mapreduce/ranking/ranking.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="test-pr" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="jetsearch" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test-pr.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.doc2term">
     <configuration default="false" name="test-job" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -362,6 +457,60 @@
       <module name="jetsearch" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/processor/document_processor.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="doc2term" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mapreduce/reverse_index" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="jetsearch" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mapreduce/reverse_index/doc2term.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="page_compress" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mapreduce/link_graph" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="jetsearch" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mapreduce/link_graph/page_compress.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="pagerank" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mapreduce/link_graph" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="jetsearch" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mapreduce/link_graph/pagerank.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -506,19 +655,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.data-import" />
-      <item index="1" class="java.lang.String" itemvalue="Python.ranking" />
-      <item index="2" class="java.lang.String" itemvalue="Python.test-pr" />
-      <item index="3" class="java.lang.String" itemvalue="Python.test-job" />
-      <item index="4" class="java.lang.String" itemvalue="Python.document_processor" />
+      <item index="0" class="java.lang.String" itemvalue="Python.test-job" />
+      <item index="1" class="java.lang.String" itemvalue="Python.document_processor" />
+      <item index="2" class="java.lang.String" itemvalue="Python.doc2term" />
+      <item index="3" class="java.lang.String" itemvalue="Python.page_compress" />
+      <item index="4" class="java.lang.String" itemvalue="Python.pagerank" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.data-import" />
-        <item index="1" class="java.lang.String" itemvalue="Python.document_processor" />
-        <item index="2" class="java.lang.String" itemvalue="Python.test-job" />
-        <item index="3" class="java.lang.String" itemvalue="Python.test-pr" />
-        <item index="4" class="java.lang.String" itemvalue="Python.ranking" />
+        <item index="0" class="java.lang.String" itemvalue="Python.doc2term" />
+        <item index="1" class="java.lang.String" itemvalue="Python.pagerank" />
+        <item index="2" class="java.lang.String" itemvalue="Python.page_compress" />
+        <item index="3" class="java.lang.String" itemvalue="Python.document_processor" />
+        <item index="4" class="java.lang.String" itemvalue="Python.test-job" />
       </list>
     </recent_temporary>
   </component>
@@ -536,10 +685,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1400" y="-72" width="1400" height="1027" extended-state="6" />
-    <editor active="true" />
+    <frame x="131" y="50" width="1116" height="663" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31285715" sideWeight="0.49029127" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23387097" sideWeight="0.49029127" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5031222" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -551,33 +700,13 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2706422" sideWeight="0.4968778" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45622894" sideWeight="0.4968778" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32874617" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32659933" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39583334" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5031222" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31092438" sideWeight="0.4968778" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3216783" sideWeight="0.49029127" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32874617" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2959559" sideWeight="0.50970876" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39583334" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -597,157 +726,192 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/webui/main.py">
+    <entry file="file://$PROJECT_DIR$/processor/chain_processor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.140625">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.7443182">
+          <caret line="131" column="9" selection-start-line="131" selection-start-column="9" selection-end-line="131" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webui/templates/slaves.html">
+    <entry file="file://$PROJECT_DIR$/processor/segmenters.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0166667">
-          <caret line="28" column="12" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.29829547">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webui/templates/layout.html">
+    <entry file="file://$PROJECT_DIR$/processor/document_processor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25">
-          <caret line="6" column="64" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="64" />
+        <state vertical-scroll-proportion="0.3622159">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webui/templates/index.html">
+    <entry file="file://$PROJECT_DIR$/mapreduce/link_graph/page_compress.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/master-start.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/static/js/jquery.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spiders/async_crawlers.py">
+    <entry file="file://$PROJECT_DIR$/webui/templates/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Python/2.7/site-packages/pymongo/topology.py">
+    <entry file="file://$PROJECT_DIR$/api/api_handlers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.046979867">
-          <caret line="124" column="42" selection-start-line="124" selection-start-column="42" selection-end-line="124" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.6818182">
+          <caret line="32" column="27" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/api_server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29829547">
+          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4434629">
+          <caret line="97" column="1" selection-start-line="97" selection-start-column="1" selection-end-line="97" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/modules/search.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34452298">
+          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/processor/stopwords">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3320965">
+          <caret line="995" column="2" selection-start-line="995" selection-start-column="2" selection-end-line="995" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui-start.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3548387">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-import.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logging.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jetsearch.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29151943">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-job.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3975265">
+          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-chain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clean-error.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5565371">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spider-start.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/slave-start.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spiders/crawlers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8977556">
-          <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Python/2.7/site-packages/kazoo/handlers/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3323782">
-          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spiders/phantom_crawlers.py">
+    <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="56" selection-start-line="30" selection-start-column="56" selection-end-line="30" selection-end-column="56" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spiders/parser.py">
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37406483">
-          <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spiders/phantom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.2344139">
-          <caret line="95" column="40" selection-start-line="95" selection-start-column="40" selection-end-line="95" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/clean-cache.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4862843">
-          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.26501766">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webui/templates/search.html">
+    <entry file="file://$PROJECT_DIR$/log/run.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mapreduce/duplicate_removal/duplicate_removal_map.js">
+    <entry file="file://$PROJECT_DIR$/mapreduce/ranking/ranking_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07853403">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.18551236">
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clean-error.py">
+    <entry file="file://$PROJECT_DIR$/mapreduce/reverse_index/doc2term.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35340315">
-          <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webui/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.041899443">
-          <caret line="113" column="16" selection-start-line="113" selection-start-column="16" selection-end-line="113" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/encrypt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11780105">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webui/templates/result.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9162011">
-          <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mapreduce/link_graph/page_compress.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.030710172">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mapreduce/link_graph/pagerank_reduce.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54702497">
-          <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mapreduce/link_graph/pagerank_map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28790787">
-          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.26501766">
+          <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -758,10 +922,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mapreduce/link_graph/pagerank.py">
+    <entry file="file://$PROJECT_DIR$/master/searcher.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59692895">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="51" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.18551236">
+          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -772,193 +936,151 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/search/search.py">
+    <entry file="file://$PROJECT_DIR$/metrics/metric.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17274472">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/master/searcher.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4606526">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webui-start.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5393474">
-          <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webui/modules/search.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63339734">
-          <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mapreduce/ranking/ranking.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30066815">
-          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mapreduce/reverse_index/doc2term.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26726058">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mapreduce/ranking/ranking_map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.033407573">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/processor/chain_processor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6993318">
-          <caret line="131" column="9" selection-start-line="131" selection-start-column="9" selection-end-line="131" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/slave/health.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.035634745">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/storage/mongodb.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11980831">
-          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/processor/segmenters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23961662">
-          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.34452298">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mq/queue.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4313099">
-          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.29151943">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Python/2.7/site-packages/redis/__init__.py">
+    <entry file="file://$PROJECT_DIR$/spiders/crawlers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/metrics/metric.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30066815">
-          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/slave/worker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56792873">
-          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/slave/spider_workers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.3028953">
-          <caret line="104" column="28" selection-start-line="104" selection-start-column="28" selection-end-line="104" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/slave/processor_workers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6013363">
-          <caret line="40" column="12" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/processor/document_processor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.100222714">
-          <caret line="83" column="26" selection-start-line="83" selection-start-column="26" selection-end-line="83" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data-import.py">
+    <entry file="file://$PROJECT_DIR$/spiders/parser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mapreduce/reverse_index/doc2term_map.js">
+    <entry file="file://$PROJECT_DIR$/spiders/phantom.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63474387">
-          <caret line="19" column="2" selection-start-line="3" selection-start-column="24" selection-end-line="19" selection-end-column="2" />
+        <state vertical-scroll-proportion="-1.2243816">
+          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test-job.py">
+    <entry file="file://$PROJECT_DIR$/slave/health.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.21908127">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spiders/async_crawlers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.41512915">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/templates/slaves.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mapreduce/link_graph/pagerank_map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2385159">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mapreduce/link_graph/pagerank.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.026501767">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mapreduce/reverse_index/doc2term_reduce.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-          <folding />
+        <state vertical-scroll-proportion="0.3180212">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Python/2.7/site-packages/kazoo/client.py">
+    <entry file="file://$PROJECT_DIR$/mapreduce/reverse_index/doc2term_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="106" column="8" selection-start-line="106" selection-start-column="8" selection-end-line="106" selection-end-column="8" />
-          <folding />
+        <state vertical-scroll-proportion="0.4770318">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jetsearch.conf">
+    <entry file="file://$PROJECT_DIR$/slave/processor_workers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="8" />
-          <folding />
+        <state vertical-scroll-proportion="0.46996465">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slave/spider_workers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.026501767">
+          <caret line="197" column="0" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slave/worker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.026501767">
+          <caret line="101" column="9" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/master/scheduler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="51" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
-          <folding>
-            <element signature="e#24#43#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.36395758">
+          <caret line="139" column="32" selection-start-line="139" selection-start-column="32" selection-end-line="139" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/master-start.py">
+    <entry file="file://$PROJECT_DIR$/spiders/phantom_crawlers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4516129">
-          <caret line="33" column="90" selection-start-line="33" selection-start-column="90" selection-end-line="33" selection-end-column="90" />
+        <state vertical-scroll-proportion="0.46996465">
+          <caret line="120" column="49" selection-start-line="120" selection-start-column="49" selection-end-line="120" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mapreduce/link_graph/pagerank_reduce.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.50353354">
+          <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/templates/search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webui/templates/result.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71955717">
+          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
           <folding />
         </state>
       </provider>

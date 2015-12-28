@@ -46,11 +46,11 @@ class Worker(object):
         self.config = eval(self.zk.get("/jetsearch/config")[0])
 
         # 连接消息队列redis
-        redis_host, redis_port = self.config.get("redis").split(":")
+        redis_host, redis_port = self.config.get("redis_url").split(":")
         self.redis = redis.Redis(host=redis_host, port=redis_port)
 
         # 连接数据库mongodb
-        mongo_host, mongo_port = self.config.get("mongodb").split(":")
+        mongo_host, mongo_port = self.config.get("mongodb_url").split(":")
         self.mongodb = MongoClient(host=mongo_host, port=int(mongo_port))
 
         # 开始心跳

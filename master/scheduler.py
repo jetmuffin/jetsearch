@@ -6,13 +6,14 @@ import time
 from kazoo.client import KazooClient
 from pymongo import MongoClient
 
+from api.api_server import APIServer
 from processor.chain_processor import CompressProcessor, PagerankProcessor, ReverseProcessor, RankingProcessor
 
 logger = logging.getLogger('root.Scheduler')
 
 
 class Scheduler(object):
-    def __init__(self, config_path="jetsearch.conf"):
+    def __init__(self, config_path='jetsearch.conf'):
         """
         任务调度器
         :param zk: zookeeper地址
@@ -28,7 +29,7 @@ class Scheduler(object):
         # 启动zookeeper
         # 保证节点存在
         # slaves存储子节点信息, job_done存储完成任务节点
-        self.zk = KazooClient(hosts=zk)
+        self.zk = KazooClient(hosts=self.config.get("zookeeper_url"))
         self.zk.start()
         self._init_zk()
 
@@ -61,6 +62,18 @@ class Scheduler(object):
                 logger.info("[JOB] job finished %s " % job)
                 self.zk.delete("/jetsearch/job")
                 # self.chain_process()
+
+    def listen(self):
+        """
+        master监听各类事件
+        :return:
+        """
+        try:
+            api_server = APIServer()
+            api_server.start()
+        except KeyboardInterrupt:
+            self.shutdown()
+            logger.info("[MASTER] goodbye~")
 
     def update_config(self, config):
         """
@@ -97,7 +110,16 @@ class Scheduler(object):
         end_time = time.time()
         logger.info("Chain processor complete, took %f s" % (end_time - start_time))
 
+    def shutdown(self):
+        self._ensure_deleted_zk("/jetsearch/config")
+        self._ensure_deleted_zk("/jetsearch/job")
+
     def _read_config(self, config_path):
+        """
+        读取配置文件
+        :param config_path: 配置文件路径
+        :return: config: 配置项
+        """
         parser = ConfigParser.ConfigParser()
         config = {}
 
@@ -109,27 +131,27 @@ class Scheduler(object):
             for item in values:
                 config[item[0]] = item[1]
 
+        logger.info("[MASTER] Load configuartion file successful, config: %s" % config)
         return config
-        # config = {
-        #     "zk": cf.get("zookeeper", "zookeeper_url"),
-        #     "redis": cf.get("redis", "redis_url"),
-        #     "mongodb": cf.get("mongodb", "mongodb_url"),
-        #     "spider_queue": cf.get("redis", "spider_queue"),
-        #     "processor_queue": cf.get("redis", "processor_queue"),
-        #     "duplicate_set": cf.get("redis", "duplicate_set"),
-        #     "storage_db": cf.get(""),
-        #     "page_table": "tbl_page",
-        #     "doc_table": "tbl_doc",
-        #     "term_table": "tbl_term"
-        # }
 
     def _init_zk(self):
+        """
+        初始化zookeeper节点
+        保证slaves,job_done节点存在,且为空
+        :return:
+        """
         self.zk.ensure_path("/jetsearch")
-        self.zk.delete("/jetsearch/slaves")
-        self.zk.delete("/jetsearch/job_done")
+        self._ensure_deleted_zk("/jetsearch/slaves")
+        self._ensure_deleted_zk("/jetsearch/job_done")
         self.zk.ensure_path("/jetsearch/slaves")
         self.zk.ensure_path("/jetsearch/job_done")
         self.update_config(self.config)
+
+    def _ensure_deleted_zk(self, path):
+        if self.zk.exists(path):
+            for children in self.zk.get_children(path):
+                self.zk.delete(path + "/" + children)
+            self.zk.delete(path)
 
     def __del__(self):
         self.zk.stop()

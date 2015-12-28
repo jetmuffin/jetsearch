@@ -1,151 +1,117 @@
-.btn-group {
-    margin: 5px;
-}
-
-.console{
-    height: 450px;
-    overflow-y: scroll;
-    background-color: #000000;
-    padding: 10px;
-}
-
-.console p {
-    color: #00C700;
-    margin: 0;
-}
-
-.content-container{
-    padding: 20px 0;
-}
-
-.header{
-    padding: 10px 10px;
-}
-
-.header-left,.header-right{
-    float: left;
-}
-
-.logo{
-    line-height: 30px;
-    padding: 10px;
-}
-.input-wrapper{
-    height: 30px;
-    line-height: 30px;
-    border-radius: 20px;
-    border: 1px solid #ddd;
-    padding: 5px 10px;
-    width: 700px;
-    float: left;
-}
-
-.input-wrapper input{
-    width: 100%;
-    border: none;
-    height: 20px;
-    line-height: 20px;
-    font-size: 16px;
-    box-shadow: none;
-    padding-left: 5px;
-    outline:none;
-}
-
-.btn-search{
-    height: 40px;
-    line-height: 30px;
-    width: 200px;
-    font-size: 16px;
-    background: #1DBD9E;
-    border: 1px solid #1DBD9E;
-    color: #ffffff;
-    border-radius: 7px;
-    margin-left: 10px;
-}
-
-.header-addon{
-    margin-top: 5px;
-    margin-left: 90px;
-    color: #ddd;
-}
-
-.addon-result{
-    color: #C5552B;
-}
-
-.addon-time{
-    color: #333;
-}
-.wrap{
-    padding: 10px;
-}
-.clearfix{
-    clear:both;
-}
-
-.main{
-    margin-left: 100px;
-    margin-top: 10px;
-    padding-right: 100px;
-}
-
-li.result-item{
-    list-style: none;
-}
-.item-title a{
-    color: rgb(41, 90, 201);
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 20px;
-}
-
-.item-body p{
-    margin: 10px 0;
-    line-height: 18px;
-    font-size: 14px;
-}
-
-.item-addon a{
-    font-size: 13px;
-    color: #008000;
-    text-decoration: none;
-}
-.result-item strong{
-    color: #c00;
+header{
+    padding:10px 40px 10px 40px;
 }
 ul{
-    padding: 0;
+    margin:0;
 }
-.pagination{
+.brand{
+    float:left;
+}
+.brand img{
+    float:left;
+}
+.brand spand{
+    font-size: 14px;
+    font-weight: bold;
+}
+.search-wrapper{
+    margin: 0 20px 0 20px ;
+    padding-top: 80px;
+    min-height: 330px;
+    background: url("/static/img/index-bg.png");
+    background-size: cover;
     text-align: center;
 }
-.pagination li{
-    float: left;
-    padding: 10px;
+.nav{
+    float:right;
+}
+.nav li{
+    list-style:none;
+    float:left;
+}
+.github-star{
+    width: 100px;
+}
+.nav a, .nav:hover{
+    color: rgb(109, 109,109);
+}
+.star{
+    font-size: 16px;
+    font-weight: bold;
+}
+.star i{
+    font-size: 18px;
+}
+.title{
+    font-family: sans-serif;
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+
+.jetsearch{
+    width: 450px;
+}
+
+.jetsearch input{
+    border: 1px solid rgba(34,36,38,0.55) !important;
+    padding: 0.75614em 1em !important;  
+}
+
+.addon{
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.addon span{
+    margin-right: 10px;
+}
+
+footer{
+    margin-top: 30px;
+    background-color: rgb(248,248,249);
+    text-align: center;
+    padding: 40px 0;
+}
+
+footer ul li{
     list-style: none;
-    margin-bottom: 20px;
+    display: inline-block;
+    margin-right:30px;
 }
-.pagination li a{
-text-decoration: none;
-    padding: 4px 8px;
-    border: 1px solid #eaeaea;
-    border-radius: 18px;
-    color: #A2A2A2;
-    font-size: 14px;
-    line-height: 12px;
+
+footer a, footer a:hover{
+    color: rgb(109,109,109);
+    text-decoration: underline;
 }
-.pagination li a:hover{
-    border-color:#1DBD9E;
+
+.clearfix{
+    clear: both;
 }
-.pagination li.current a{
-    border-color:#1DBD9E;
-    background: #1DBD9E;
-    color: #ffffff;
+.header-search{
+    padding: 20px 100px 10px 100px;
 }
-.pagination li .pages span{
-    padding: 4px 8px;
-    border: 1px solid #eaeaea;
-    border-radius: 18px;
-    color: #8b8b8b;
-    font-size: 14px;
+.header-search .input, .header-search form, .header-search input{
+    width: 100%;
+}
+.header-search .addon{
+    padding-left:10px;
+}
+.jetsearch-result{
+    width: 100%;
+}
+
+.pagination{
+    text-align:center;
+}
+
+strong{
+    color: #DB2828;
+}
+
+.ui.items>.item>.content>a.header {
+    color: #4183C4;
+}
+
+.more p{
+    padding: 10px 0;
 }

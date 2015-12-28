@@ -110,6 +110,7 @@ class SpiderWorker(Worker):
         if self.task:
             self.spider_queue.push(str(self.task))
 
+
 class AsyncSpiderWorker(Worker):
     def __init__(self, master='127.0.0.1:2181', type='spider', concurrency=5, **kwargs):
         """
@@ -230,4 +231,3 @@ class AsyncSpiderWorker(Worker):
     def run(self, job):
         io_loop = ioloop.IOLoop.current()
         io_loop.run_sync(self._run)
-

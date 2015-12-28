@@ -1,18 +1,15 @@
 /**
  * Created by jeff on 15/12/23.
  */
-// vim: set et sw=2 ts=2 sts=2 ff=unix fenc=utf8:
-// Author: Binux<i@binux.me>
-//         http://binux.me
-// Created on 2014-10-29 22:12:14
 
 var port, server, service,
   wait_before_end = 1000,
   system = require('system'),
   webpage = require('webpage');
 
+//接受系统输入
 if (system.args.length !== 2) {
-  console.log('Usage: simpleserver.js <portnumber>');
+  console.log('Usage: phantom.js <portnumber>');
   phantom.exit(1);
 } else {
   port = system.args[1];
@@ -24,8 +21,7 @@ if (system.args.length !== 2) {
   }, function (request, response) {
     phantom.clearCookies();
 
-    //console.debug(JSON.stringify(request, null, 4));
-    // check method
+    // 禁用GET方法
     if (request.method == 'GET') {
       response.statusCode = 403;
       response.write("method not allowed!");
@@ -33,15 +29,17 @@ if (system.args.length !== 2) {
       return;
     }
 
+    // 读取post参数
     var fetch = JSON.parse(request.postRaw);
     console.debug(JSON.stringify(fetch, null, 2));
 
-    // create and set page
+    // 创建page
     var page = webpage.create();
     page.viewportSize = {
       width: 1024,
       height: 768
     }
+    // 设置user-agent
     if (fetch.headers && fetch.headers['User-Agent']) {
       page.settings.userAgent = fetch.headers['User-Agent'];
     }
@@ -51,7 +49,7 @@ if (system.args.length !== 2) {
       page.customHeaders = fetch.headers;
     }
 
-    // add callbacks
+    // 添加回调
     var first_response = null,
         finished = false,
         page_loaded = false,
@@ -59,6 +57,7 @@ if (system.args.length !== 2) {
         end_time = null,
         script_executed = false,
         script_result = null;
+    // 处理各类回调函数
     page.onInitialized = function() {
       if (!script_executed && fetch.js_script && fetch.js_run_at === "document-start") {
         script_executed = true;
@@ -110,13 +109,13 @@ if (system.args.length !== 2) {
       }
     }, page.settings.resourceTimeout, page);
 
-    // send request
+    // 发送抓取请求
     page.open(fetch.url, {
       operation: fetch.method,
       data: fetch.data,
     });
 
-    // make response
+    // 制作相应包
     function make_result(page) {
       if (!!!end_time || finished) {
         return;
@@ -145,6 +144,7 @@ if (system.args.length !== 2) {
 
       console.log("["+result.status_code+"] "+result.orig_url+" "+result.time)
 
+      // 将抓取内容打包成http返回
       var body = JSON.stringify(result, null, 2);
       response.statusCode = 200;
       response.headers = {

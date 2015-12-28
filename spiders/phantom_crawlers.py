@@ -1,9 +1,10 @@
+# -*- coding: utf-8 -*-
+
 import copy
 import json
 import logging
 import time
 import tornado
-from tornado.curl_httpclient import CurlAsyncHTTPClient
 from tornado.httpclient import AsyncHTTPClient
 
 
@@ -20,6 +21,7 @@ def unicode_obj(obj, encoding='utf-8'):
 
 
 class PhantomCrawler(object):
+    # 默认配置
     default_options = {
         'method': 'GET',
         'headers': {},
@@ -28,7 +30,7 @@ class PhantomCrawler(object):
         'timeout': 120,
     }
 
-    def __init__(self, phantomjs_proxy='http://localhost:25555', user_agent='', pool_size=100, async=False):
+    def __init__(self, phantomjs_proxy='http://localhost:12111', user_agent='', pool_size=100, async=False):
         self.phantomjs_proxy = phantomjs_proxy
         self.user_agent = user_agent
         self.async = async
@@ -39,9 +41,19 @@ class PhantomCrawler(object):
 
     @staticmethod
     def parse_option(default_options, url, user_agent, **kwargs):
+        """
+        解析参数
+        :param default_options:
+        :param url:
+        :param user_agent:
+        :param kwargs:
+        :return:
+        """
         fetch = copy.deepcopy(default_options)
         fetch['url'] = url
         fetch['headers']['User-Agent'] = user_agent
+
+        # 是否要解析js,js解析到的位置
         js_script = kwargs.get('js_script')
         if js_script:
             fetch['js_script'] = js_script
@@ -50,6 +62,12 @@ class PhantomCrawler(object):
         return fetch
 
     def fetch(self, url, **kwargs):
+        """
+        抓取url
+        :param url:
+        :param kwargs:
+        :return:
+        """
         start_time = time.time()
         fetch = self.parse_option(self.default_options, url, user_agent=self.user_agent, **kwargs)
         request_conf = {
@@ -60,6 +78,11 @@ class PhantomCrawler(object):
             request_conf['request_timeout'] = fetch['timeout'] + 1
 
         def handle_response(response):
+            """
+            处理返回体
+            :param response:
+            :return:
+            """
             if not response.body:
                 return handle_error(Exception('no response from phantomjs'))
             try:
@@ -77,6 +100,11 @@ class PhantomCrawler(object):
             return result
 
         def handle_error(error):
+            """
+            处理错误
+            :param error:
+            :return:
+            """
             result = {
                 'status_code': getattr(error, 'code', 599),
                 'error': unicode_obj(error),

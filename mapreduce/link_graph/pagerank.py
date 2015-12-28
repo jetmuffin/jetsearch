@@ -6,25 +6,29 @@ from pymongo import MongoClient
 server = MongoClient("127.0.0.1", 27017)
 db = server.jetsearch02
 
-def judge(type=1):
-    judge_list = [
-        {"_id": ObjectId("567a4ff3e77a5418ef020006"), "pr": 0},
-        {"_id": ObjectId("567a5c20e77a541afde34705"), "pr": 0},
-        {"_id": ObjectId("567a5063e77a5418eb0a144b"), "pr": 0},
-        {"_id": ObjectId("567a521be77a54191ab7ee54"), "pr": 0},
-        {"_id": ObjectId("567a4ff6e77a5418ef020007"), "pr": 0}
-    ]
+judge_list = []
+for doc in db.tbl_page.find().limit(100):
+    judge_list.append({
+        "_id": doc['_id'],
+        "pr": doc['pr']
+    })
+convergence = 0
 
-    collection = db.tbl_pagerank if type == 1 else db.tbl_pagerank_t
-    for item in judge_list:
-        item['pr'] = collection.find_one({"_id": item['_id']})['value']['pr']
-    return judge_list
+def conver_judge():
+    global convergence
+    for doc in judge_list:
+        cur_doc = db.tbl_pagerank_t.find_one({"_id": doc['_id']})
+        if cur_doc['value']['pr'] == doc['pr']:
+            convergence += 1
+            judge_list.remove(doc)
+        else:
+            doc['pr'] = cur_doc['value']['pr']
 
 mapper = Code(open('pagerank_map.js', 'r').read())
 reducer = Code(open('pagerank_reduce.js', 'r').read())
 
-# 初始迭代次数为30
-iteration = 30
+# 初始迭代次数为100
+iteration = 100
 count = 0
 
 # 初次迭代,从pagerank表至pagerank_t表
@@ -32,14 +36,12 @@ db.tbl_pagerank.map_reduce(mapper, reducer, out="tbl_pagerank_t", full_response=
 
 # pagerank_t表循环迭代
 while count < iteration:
-    stop_list = judge(2)
-    print(stop_list)
     db.tbl_pagerank_t.map_reduce(mapper, reducer, out="tbl_pagerank_t", full_response=True, verbos=True)
     count += 1
-    stop_list_post = judge(2)
-    if cmp(stop_list, stop_list_post) == 0:
+    conver_judge()
+    print "%d pages convergence" % convergence
+    if convergence == 100:
         break
-    stop_list = stop_list_post
 
 print "iteration: %d" % count
 # 更新page表

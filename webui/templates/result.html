@@ -2,74 +2,91 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>搜索结果</title>
+    <title>搜索</title>
+    <link rel="stylesheet" href="{{static_url('css/semantic/dist/semantic.min.css')}}">
     <link rel="stylesheet" href="{{static_url('css/style.css')}}">
 </head>
-<div class="wrap">
-<div class="header">
-    <div class="header-left">
-        <div class="logo">
-            LOGO
+<body>
+    <header>
+        <div class="brand"><a href="/"><img src="{{static_url('img/logo.png')}}" alt="jetsearch" width="120"></a></div>
+        <div class="nav">
+            <ul>
+                <li><iframe class="github-star" src="https://ghbtns.com/github-btn.html?user=JetMuffin&repo=jetsearch&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe></li>
+                <li><iframe class="github-follow" src="https://ghbtns.com/github-btn.html?user=JetMuffin&type=follow&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe></li>
+            </ul>
         </div>
-    </div>
-    <div class="header-right">
-        <form action="/result">
-            <div class="input-wrapper">
-                <input type="text" name="keyword" value="{{keyword}}">
+        <div class="clearfix"></div>
+        <div class="header-search">
+            <div class="ui category search">
+                <div class="ui icon input">
+                    <form action="">
+                        <input class="jetsearch-result" type="text" placeholder="Search..." name="keyword" value="{{keyword}}">
+                    </form>
+                    <i class="search icon"></i>
+                </div>
             </div>
-            <button type="submit" class="btn-search">查询</button>
-        </form>
-    </div>
-    <div class="clearfix"></div>
-    <div class="header-addon">
-        <span class="addon-result">搜索结果</span>
-        |
-        <span class="addon-time">共找到{{ results['count'] }}个结果,耗时{{time}}s</span>
-    </div>
-</div>
-<div class="main">
-{% if len(results) > 0 %}
-{% for doc in results['docs'] %}
-    <li class="result-item">
-        <div class="item-title">
-            <a href="{% raw doc['href'] %}" target="_blank">{% raw doc['title'] %}</a>
+            <div class="addon">
+               <h5>共找到{{ results['count'] }}个结果 </h5>
+            </div>
         </div>
-        <div class="item-body">
-            <p>{% raw doc['content'] %}</p>
-        </div>
-        <div class="item-addon">
-            <a href="{% raw doc['href'] %}" target="_blank">{% raw doc['href'] %}</a>
-        </div>
-    </li>
-
-
-    <br />
-
-    <br/>
-{% end %}
-    <div class="pagination">
-        <ul>
-            <li class="pages"><a href="/result?keyword={{keyword}}&page=1"><span>第一页</span></a></li>
-            {% set end = min(page+5,results['page_count']) %}
-            {% set start = max(page-5, 1) %}
-            {% for pg in range(start,end) %}
-
-                {% if pg == page %}
-                <li class="current"><a href="/result?keyword={{keyword}}&page={{pg}}">{{pg}}</a></li>
-                {% else %}
-                <li class="page"><a href="/result?keyword={{keyword}}&page={{pg}}">{{pg}}</a></li>
-                {% end %}
-
+    </header>
+    <div class="ui grid">
+        <div class="two wide column"></div>
+        <div class="twelve wide column">
+            {% if len(results) > 0 %}
+            <div class="ui items">
+            {% for doc in results['docs'] %}
+                    <div class="item">
+                        <div class="content">
+                            <a href="{% raw doc['href'] %}" target="_blank" class="header">{% raw doc['title'] %}</a>
+                            <div class="meta">
+                                <a href="{% raw doc['href'] %}" target="_blank">{% raw doc['href'] %}</a>
+                            </div>
+                            <div class="description">
+                                <p>{% raw doc['content'] %}</p>
+                            </div>
+                             <div class="extra">
+                                 <div class="ui label"><i class="star icon"></i>{% raw doc['rating'] %}</div>
+                                 <div class="ui label"><i class="fork icon"></i>{% raw doc['pr'] %}</div>
+                             </div>
+                        </div>
+                    </div>
             {% end %}
-            <li><a href="/result?keyword={{keyword}}&page={{results['page_count']}}">..{{results['page_count']}}</a></li>
-            <li class="pages"><a href="/result?keyword={{keyword}}&page={{results['page_count']}}"><span>最后一页</span></a></li>
-        </ul>
+            </div>
+                <div class="pagination">
+                    <div class="ui buttons centered">
+                         <a class="ui button" href="/q?keyword={{keyword}}&page=1"><span>第一页</span></a>
+                        {% set end = min(page+5,results['page_count']) %}
+                        {% set start = max(page-5, 1) %}
+                        {% for pg in range(start,end) %}
+                            {% if pg == page %}
+                            <a class="ui button teal" href="/q?keyword={{keyword}}&page={{pg}}">{{pg}}</a>
+                            {% else %}
+                            <a class="ui button" href="/q?keyword={{keyword}}&page={{pg}}">{{pg}}</a>
+                            {% end %}
+                        {% end %}
+                        <a class="ui button" href="/q?keyword={{keyword}}&page={{results['page_count']}}">..{{results['page_count']}}</a>
+                        <a class="ui button" href="/q?keyword={{keyword}}&page={{results['page_count']}}"><span>最后一页</span></a></li>
+                    </div>
+
+                </div>
+            {% end %}
+
+        </div>
+        <div class="two wide column"></div>
     </div>
-{% end %}
 
-</div>
-</div>
-
-
+    <footer>
+         <div class="more"> <p>Learn more things about jetsearch <a href="http://github.jetmuffin.io/">github.jetmuffin.io.</a></p></div>
+         <div class="links">
+            <ul>
+                <li><a href="https://github.com/JetMuffin">Github</a></li>
+                <li><a href="http://weibo.com/u/1922357801">Weibo</a></li>
+                <li><a href="https://www.zhihu.com/people/JetMuffin">Zhihu</a></li>
+                <li><a href="mailto:564936642@qq.com">Mail</a></li>
+            </ul>
+         </div>
+        <div class="clearfix"></div>
+    </footer>
 </body>
 </html>

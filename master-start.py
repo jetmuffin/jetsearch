@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os
 from optparse import OptionParser
 import sys
 import re
@@ -7,18 +8,8 @@ import logging
 import logging.config
 logging.config.fileConfig('logging.conf')
 root_logger = logging.getLogger('root')
-root_logger.debug('test root logger...')
 
 from master.scheduler import Scheduler
-
-
-def address_validate(addr, name):
-    if not addr:
-        print_error("Missing required parameters: %s address required." % name)
-    else:
-        pattern = re.compile(r'[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}:[0-9]{2,5}')
-        if not pattern.match(addr):
-            print_error("Wrong address format: %s address format illegal" % name)
 
 
 def print_error(message):
@@ -29,17 +20,16 @@ def print_error(message):
 
 if __name__ == "__main__":
     parser = OptionParser(usage="Usage: %prog [options]")
-    parser.add_option("-z", "--zk", help="zookeeper address <host:port>", dest="zk")
-    parser.add_option("-r", "--redis", help="redis address <host:port>", dest="redis")
-    parser.add_option("-m", "--mongo", help="mongodb address <host:port>", dest="mongodb")
+    parser.add_option("-c", "--config", help="configuration path", dest="config_path")
 
     (options, args) = parser.parse_args()
 
     """ 参数验证 """
-    address_validate(options.zk, "zookeeper")
-    address_validate(options.mongodb, "mongodb")
-    address_validate(options.redis, "redis")
+    if options.config_path:
+        if not os.path.exists(options.config_path):
+            print_error("Configuration path error: file not exists.")
+    else:
+        print_error("Configuration required")
 
-    master = Scheduler(options.zk, options.redis, options.mongodb)
-    while True:
-        sleep(2)
+    master = Scheduler(options.config_path)
+    master.listen()
